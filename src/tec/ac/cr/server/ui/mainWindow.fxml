@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane maxHeight="392.0" maxWidth="1054.0" minHeight="392.0" minWidth="1054.0" prefHeight="392.0" prefWidth="1054.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tec.ac.cr.server.ui.MainWindowController">
+   <children>
+      <Button fx:id="beginServerButton" layoutX="935.0" layoutY="346.0" mnemonicParsing="false" onAction="#beginServer" text="Iniciar Server" />
+      <Label layoutX="464.0" layoutY="22.0" text="DONCEY KONG JR." />
+      <Label layoutX="93.0" layoutY="79.0" text="Crear Kremlin" />
+      <ChoiceBox fx:id="kremlinChoiceBox" layoutX="79.0" layoutY="109.0" prefHeight="21.0" prefWidth="116.0" />
+      <Button fx:id="createKremlinButton" layoutX="106.0" layoutY="153.0" mnemonicParsing="false" onAction="#createKremlin" text="Crear" />
+      <Label layoutX="490.0" layoutY="79.0" text="Crear Fruta" />
+      <TextField fx:id="fruitPointsEntry" layoutX="532.0" layoutY="109.0" prefHeight="31.0" prefWidth="64.0" />
+      <TextField fx:id="createFruitIEntry" layoutX="532.0" layoutY="153.0" prefHeight="31.0" prefWidth="64.0" />
+      <TextField fx:id="createFruitJEntry" layoutX="532.0" layoutY="196.0" prefHeight="31.0" prefWidth="64.0" />
+      <Label layoutX="450.0" layoutY="114.0" text="Puntos:" />
+      <Label layoutX="457.0" layoutY="158.0" text="Fila:" />
+      <Label layoutX="445.0" layoutY="201.0" text="Columna:" />
+      <Button fx:id="createFruitButton" layoutX="504.0" layoutY="244.0" mnemonicParsing="false" onAction="#createFruit" text="Crear" />
+      <ChoiceBox fx:id="playerChoiceBox" layoutX="162.0" layoutY="346.0" prefHeight="31.0" prefWidth="126.0" />
+      <Label layoutX="26.0" layoutY="351.0" text="Elije un jugador:" />
+      <Label layoutX="833.0" layoutY="79.0" text="Eliminar Fruta" />
+      <Label layoutX="825.0" layoutY="114.0" text="Fila:" />
+      <Label layoutX="807.0" layoutY="157.0" text="Columna:" />
+      <TextField fx:id="deleteFruitIEntry" layoutX="886.0" layoutY="109.0" prefHeight="31.0" prefWidth="64.0" />
+      <TextField fx:id="deleteFruitJEntry" layoutX="886.0" layoutY="152.0" prefHeight="31.0" prefWidth="64.0" />
+      <Button fx:id="deleteFruitButton" layoutX="848.0" layoutY="196.0" mnemonicParsing="false" onAction="#deleteFruit" text="Borrar" />
+      <Button fx:id="confirmPlayerButton" layoutX="311.0" layoutY="346.0" mnemonicParsing="false" onAction="#confirmPlayer" text="Confirmar" />
+   </children>
+</AnchorPane>
