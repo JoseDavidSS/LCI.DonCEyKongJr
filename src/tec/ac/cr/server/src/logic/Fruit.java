@@ -1,4 +1,4 @@
-package tec.ac.cr.server.logic;
+package logic;
 
 public class Fruit extends Entity {
 
