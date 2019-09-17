@@ -3,7 +3,7 @@ package tec.ac.cr.server.logic;
 public class BlueKremlin extends Kremlin {
 
     public BlueKremlin(Integer posI, Integer posJ) {
-        super(posI, posJ);
+        super(22);
     }
 
     public void checkVineEnd(){

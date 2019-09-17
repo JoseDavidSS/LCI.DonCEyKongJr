@@ -3,7 +3,7 @@ package tec.ac.cr.server.logic;
 public class DKJr extends Entity {
 
     public DKJr(){
-        super(0, 0);
+        super(22, 0);
         this.lives = 3;
         this.currentPoints = 0;
     }

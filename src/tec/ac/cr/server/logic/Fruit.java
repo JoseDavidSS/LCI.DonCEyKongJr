@@ -2,9 +2,9 @@ package tec.ac.cr.server.logic;
 
 public class Fruit extends Entity {
 
-    public Fruit(Integer posI, Integer posJ){
+    public Fruit(Integer posI, Integer posJ, Integer pointsValue){
         super(posI, posJ);
-        this.pointsValue = 0;
+        this.pointsValue = pointsValue;
     }
 
     private Integer pointsValue;
