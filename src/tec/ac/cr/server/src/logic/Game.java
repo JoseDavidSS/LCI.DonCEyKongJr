@@ -1,4 +1,4 @@
-package tec.ac.cr.server.logic;
+package logic;
 
 import java.util.ArrayList;
 import java.util.List;

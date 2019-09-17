@@ -1,4 +1,4 @@
-package tec.ac.cr.server.ui;
+package ui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
