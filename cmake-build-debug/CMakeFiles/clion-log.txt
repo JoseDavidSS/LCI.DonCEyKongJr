@@ -1,4 +1,1 @@
-"C:\Users\Kevin Cordero Zúñiga\AppData\Roaming\JetBrains\CLion 2019.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" C:\CProjects\DonceyKongJr
--- Configuring done
--- Generating done
--- Build files have been written to: C:/CProjects/DonceyKongJr/cmake-build-debug
+CMakeLists.txt not found in C:\CProjects\DonceyKongJr Select CMakeLists.txt file...
