@@ -1,0 +1,3 @@
+C:/CProjects/DonceyKongJr/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/CProjects/DonceyKongJr/cmake-build-debug/CMakeFiles/DonceyKongJr.dir
+C:/CProjects/DonceyKongJr/cmake-build-debug/CMakeFiles/rebuild_cache.dir
