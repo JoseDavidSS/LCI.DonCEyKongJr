@@ -3,4 +3,9 @@ project(DonceyKongJr)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(DonceyKongJr src/main.c)
+add_executable(DonceyKongJr src/main.c src/gui.c src/gui.h)
+target_link_libraries(DonceyKongJr -lmingw32 -lallegro-5.0.10-monolith-md-debug)
+
+
+
+
