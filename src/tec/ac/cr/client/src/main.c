@@ -22,6 +22,8 @@ int main() {
     al_register_event_source(queue, al_get_keyboard_event_source());
     al_register_event_source(queue, al_get_display_event_source(pantalla));
 
+
+
     bool corriendo = true;
     while (corriendo){
 
