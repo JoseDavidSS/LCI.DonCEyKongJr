@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/sockets.dir/main.c.o  -o sockets 

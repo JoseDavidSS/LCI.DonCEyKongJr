@@ -1,0 +1,3 @@
+/home/reds/Documentos/DonCEy-Kong-Jr/sockets/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/reds/Documentos/DonCEy-Kong-Jr/sockets/cmake-build-debug/CMakeFiles/sockets.dir
+/home/reds/Documentos/DonCEy-Kong-Jr/sockets/cmake-build-debug/CMakeFiles/edit_cache.dir
