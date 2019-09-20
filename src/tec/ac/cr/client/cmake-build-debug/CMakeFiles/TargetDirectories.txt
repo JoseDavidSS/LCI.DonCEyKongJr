@@ -1,0 +1,3 @@
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/cmake-build-debug/CMakeFiles/DonceyKongJr.dir
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/cmake-build-debug/CMakeFiles/rebuild_cache.dir
