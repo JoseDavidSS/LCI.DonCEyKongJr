@@ -6,28 +6,20 @@ import java.util.List;
 public class Game {
 
     private Game(){
-        gameMatrix1 = new Integer[this.rows][this.columns];
-        gameMatrix2 = new Integer[this.rows][this.columns];
+        gameMatrix = new Integer[this.rows][this.columns];
         baseMatrix = new Integer[this.rows][this.columns];
-        enemiesAliveArray1 = new ArrayList<>();
-        enemiesAliveArray2 = new ArrayList<>();
-        onScreenFruitsArray1 = new ArrayList<>();
-        onScreenFruitsArray2 = new ArrayList<>();
+        enemiesAliveArray = new ArrayList<>();
+        onScreenFruitsArray = new ArrayList<>();
     }
 
     private static Game game = null;
-    private DKJr player1 = new DKJr();
-    private DKJr player2 = new DKJr();
-    private List<Kremlin> enemiesAliveArray1;
-    private List<Kremlin> enemiesAliveArray2;
-    private List<Fruit> onScreenFruitsArray1;
-    private List<Fruit> onScreenFruitsArray2;
-    private Integer[][] gameMatrix1;
-    private Integer[][] gameMatrix2;
+    private DKJr player = new DKJr();
+    private List<Kremlin> enemiesAliveArray;
+    private List<Fruit> onScreenFruitsArray;
+    private Integer[][] gameMatrix;
     private Integer[][] baseMatrix;
     private Integer rows = 24;
     private Integer columns = 16;
-    private Boolean twoGames = false;
 
     public static Game getInstance(){
         if (game == null){
@@ -36,68 +28,36 @@ public class Game {
         return game;
     }
 
-    public DKJr getPlayer1() {
-        return player1;
+    public DKJr getPlayer() {
+        return player;
     }
 
-    public void setPlayer1(DKJr player1) {
-        this.player1 = player1;
+    public void setPlayer(DKJr player) {
+        this.player = player;
     }
 
-    public DKJr getPlayer2() {
-        return player2;
+    public List<Kremlin> getEnemiesAliveArray() {
+        return enemiesAliveArray;
     }
 
-    public void setPlayer2(DKJr player2) {
-        this.player2 = player2;
+    public void setEnemiesAliveArray(List<Kremlin> enemiesAliveArray) {
+        this.enemiesAliveArray = enemiesAliveArray;
     }
 
-    public List<Kremlin> getEnemiesAliveArray1() {
-        return enemiesAliveArray1;
+    public List<Fruit> getOnScreenFruitsArray() {
+        return onScreenFruitsArray;
     }
 
-    public void setEnemiesAliveArray1(List<Kremlin> enemiesAliveArray1) {
-        this.enemiesAliveArray1 = enemiesAliveArray1;
+    public void setOnScreenFruitsArray(List<Fruit> onScreenFruitsArray) {
+        this.onScreenFruitsArray = onScreenFruitsArray;
     }
 
-    public List<Kremlin> getEnemiesAliveArray2() {
-        return enemiesAliveArray2;
+    public Integer[][] getGameMatrix() {
+        return gameMatrix;
     }
 
-    public void setEnemiesAliveArray2(List<Kremlin> enemiesAliveArray2) {
-        this.enemiesAliveArray2 = enemiesAliveArray2;
-    }
-
-    public List<Fruit> getOnScreenFruitsArray1() {
-        return onScreenFruitsArray1;
-    }
-
-    public void setOnScreenFruitsArray1(List<Fruit> onScreenFruitsArray1) {
-        this.onScreenFruitsArray1 = onScreenFruitsArray1;
-    }
-
-    public List<Fruit> getOnScreenFruitsArray2() {
-        return onScreenFruitsArray2;
-    }
-
-    public void setOnScreenFruitsArray2(List<Fruit> onScreenFruitsArray2) {
-        this.onScreenFruitsArray2 = onScreenFruitsArray2;
-    }
-
-    public Integer[][] getGameMatrix1() {
-        return gameMatrix1;
-    }
-
-    public void setGameMatrix1(Integer[][] gameMatrix1) {
-        this.gameMatrix1 = gameMatrix1;
-    }
-
-    public Integer[][] getGameMatrix2() {
-        return gameMatrix2;
-    }
-
-    public void setGameMatrix2(Integer[][] gameMatrix2) {
-        this.gameMatrix2 = gameMatrix2;
+    public void setGameMatrix(Integer[][] gameMatrix) {
+        this.gameMatrix = gameMatrix;
     }
 
     public Integer getRows() {
@@ -143,68 +103,28 @@ public class Game {
         }
     }
 
-    public void addEnemy(Kremlin kremlin, Integer player){
-        switch (player){
-            case 1:
-                enemiesAliveArray1.add(kremlin);
-                System.out.println("Kremlin agregado al p1");
-                gameMatrix1[3][5] = kremlin.getType();
-                break;
-            case 2:
-                enemiesAliveArray2.add(kremlin);
-                System.out.println("Kremlin agregado al p2");
-                gameMatrix2[3][5] = kremlin.getType();
-                break;
-        }
+    public void addEnemy(Kremlin kremlin, List<Kremlin> enemiesAliveArray, Integer[][] gameMatrix){
+        enemiesAliveArray.add(kremlin);
+        System.out.println("Kremlin agregado");
+        gameMatrix[3][5] = kremlin.getType();
     }
 
-    public void addFruit(Fruit fruit, Integer player){
-        switch (player){
-            case 1:
-                onScreenFruitsArray1.add(fruit);
-                System.out.println("Fruta agregada al p1");
-                gameMatrix1[fruit.getPosI()][fruit.getPosJ()] = 3;
-                break;
-            case 2:
-                onScreenFruitsArray2.add(fruit);
-                System.out.println("Fruta agregada al p2");
-                gameMatrix2[fruit.getPosI()][fruit.getPosJ()] = 3;
-                break;
-        }
+    public void addFruit(Fruit fruit, List<Fruit> onScreenFruitsArray, Integer[][] gameMatrix){
+        onScreenFruitsArray.add(fruit);
+        System.out.println("Fruta agregada");
+        gameMatrix[fruit.getPosI()][fruit.getPosJ()] = 3;
     }
 
-    public void deleteFruit(Integer posI, Integer posJ, Integer player){
+    public void deleteFruit(Integer posI, Integer posJ, List<Fruit> onScreenFruitsArray, Integer[][] gameMatrix){
         Fruit fruit;
-        switch (player){
-            case 1:
-                for (int i = 0; i < onScreenFruitsArray1.size(); i++){
-                    fruit = onScreenFruitsArray1.get(i);
-                    if (fruit.getPosI().equals(posI) && fruit.getPosJ().equals(posJ)){
-                        onScreenFruitsArray1.remove(i);
-                        gameMatrix1[posI][posJ] = baseMatrix[posI][posJ];
-                    }
-                }
-                System.out.println("Fruta eliminada al p1");
-                break;
-            case 2:
-                for (int i = 0; i < onScreenFruitsArray2.size(); i++){
-                    fruit = onScreenFruitsArray2.get(i);
-                    if (fruit.getPosI().equals(posI) && fruit.getPosJ().equals(posJ)){
-                        onScreenFruitsArray2.remove(i);
-                        gameMatrix2[posI][posJ] = baseMatrix[posI][posJ];
-                    }
-                }
-                System.out.println("Fruta eliminada al p2");
-                break;
+        for (int i = 0; i < onScreenFruitsArray.size(); i++){
+            fruit = onScreenFruitsArray.get(i);
+            if (fruit.getPosI().equals(posI) && fruit.getPosJ().equals(posJ)){
+                onScreenFruitsArray.remove(i);
+                gameMatrix[posI][posJ] = this.baseMatrix[posI][posJ];
+            }
         }
-    }
-
-    public void updateGameMatrix(Integer[][] gameMatrix){
-
-    }
-
-    public void checkEnemyColition(){
-
+        System.out.println("Fruta eliminada");
     }
 
     public String serializeMatrixToJson(Integer[][] gameMatrix){
@@ -212,7 +132,7 @@ public class Game {
     }
 
     public Integer[][] deserializeMatrixFromJson(String json){
-        return this.gameMatrix1;
+        return this.gameMatrix;
     }
 
     public void printMatrix(Integer[][] gameMatrix){
@@ -224,15 +144,8 @@ public class Game {
         }
     }
 
-    public void initializeGame(){
-        initializeGameMatrix(gameMatrix1);
-        initializeGameMatrix(gameMatrix2);
-        initializeGameMatrix(baseMatrix);
-    }
-
     public static void main(String args[]){
         Game game = getInstance();
-        game.initializeGame();
         System.out.println("Hola");
     }
 }

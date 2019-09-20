@@ -2,7 +2,7 @@ package logic;
 
 public abstract class Entity {
 
-    Entity(Integer posI, Integer posJ){
+    protected Entity(Integer posI, Integer posJ){
         this.velocity = 1;
         this.onScreen = true;
         this.posI = posI;
