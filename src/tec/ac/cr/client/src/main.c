@@ -8,32 +8,6 @@
 #include "gui.h"
 
 int main() {
-
-    al_init();
-
-    al_init_primitives_addon();
-    al_init_image_addon();
-    init_screen();
-
-    ALLEGRO_EVENT_QUEUE *queue;
-    queue = al_create_event_queue();
-
-    al_install_keyboard();
-    al_register_event_source(queue, al_get_keyboard_event_source());
-    al_register_event_source(queue, al_get_display_event_source(pantalla));
-
-
-
-    bool corriendo = true;
-    while (corriendo){
-
-        al_flip_display();
-
-        ALLEGRO_EVENT event;
-        al_wait_for_event(queue, &event);
-        if (event.type == ALLEGRO_EVENT_KEY_UP || event.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
-            corriendo = false;
-    }
-    al_destroy_bitmap(fondo);
-    al_destroy_display(pantalla);
+    printf("Hello, World!\n");
+    return 0;
 }
