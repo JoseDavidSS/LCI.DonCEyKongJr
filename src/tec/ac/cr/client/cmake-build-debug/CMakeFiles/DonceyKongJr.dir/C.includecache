@@ -6,9 +6,15 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/bitmapNode.h
+allegro5/bitmap.h
+-
+
 C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/gui.c
 gui.h
 C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/gui.h
+bitmapNode.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/bitmapNode.h
 
 C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/gui.h
 stdio.h

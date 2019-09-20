@@ -55,7 +55,7 @@ struct BitMapNode* searchRedKremlin (int position){
     return tmp;
 }
 
-void insertFruit (ALLEGRO_BITMAP* bitmap){
+void insertFruitBitmap (ALLEGRO_BITMAP* bitmap){
     struct BitMapNode* tmp = (struct BitMapNode*) malloc(sizeof(struct BitMapNode));
     tmp->bitmap = bitmap;
     tmp->next = fruitHead;

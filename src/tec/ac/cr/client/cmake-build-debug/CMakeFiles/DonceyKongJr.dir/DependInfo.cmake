@@ -6,6 +6,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/bitmapNode.c" "C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/cmake-build-debug/CMakeFiles/DonceyKongJr.dir/src/bitmapNode.c.obj"
   "C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/gui.c" "C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/cmake-build-debug/CMakeFiles/DonceyKongJr.dir/src/gui.c.obj"
+  "C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/Game.c" "C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/cmake-build-debug/CMakeFiles/DonceyKongJr.dir/src/logic/Game.c.obj"
+  "C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/lists/FruitNode.c" "C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/cmake-build-debug/CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.obj"
+  "C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/lists/KremlinNode.c" "C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/cmake-build-debug/CMakeFiles/DonceyKongJr.dir/src/logic/lists/KremlinNode.c.obj"
   "C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/main.c" "C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/cmake-build-debug/CMakeFiles/DonceyKongJr.dir/src/main.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

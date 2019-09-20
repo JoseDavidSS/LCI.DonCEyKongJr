@@ -21,7 +21,7 @@ struct BitMapNode{
 void insertVine(ALLEGRO_BITMAP* bitmap);
 void insertBlueKremlin(ALLEGRO_BITMAP* bitmap);
 void insertRedKremlin(ALLEGRO_BITMAP* bitmap);
-void insertFruit(ALLEGRO_BITMAP* bitmap);
+void insertFruitBitmap(ALLEGRO_BITMAP* bitmap);
 void insertFloor(ALLEGRO_BITMAP* bitmap);
 
 struct BitMapNode* searchVine(int position);
