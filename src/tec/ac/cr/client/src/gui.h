@@ -19,6 +19,7 @@ static int ancho = ANCHO_PANTALLA;
 ALLEGRO_DISPLAY *pantalla;
 ALLEGRO_BITMAP * fondo;
 
+
 static int gameMatrix[24][16] = {{0,1,2,3,4,5,6,7,8,9,1,1,1,1,1,1},
                           {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
                           {2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3},
@@ -52,6 +53,8 @@ void createBlueKremlins();
 void createRedKremlins();
 void createFruits();
 void createFloor();
+int calculateXposition(int i);
+int calculateYposition(int j);
 
 
 
