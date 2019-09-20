@@ -8,8 +8,6 @@
 #ifndef DONCEYKONGJR_GAME_H
 #define DONCEYKONGJR_GAME_H
 
-static int gameMatrix[24][16];
-
 static int nothing = 0;
 
 static int tree = 11;
@@ -56,20 +54,20 @@ static int rows = 24;
 static int columns = 16;
 static struct DKJr dkJr = {1, 22, 0, 3, 0, 0, 0, 0, 0, 0, 0};
 
-void initializeGameMatrix();
-void updateGameMatrix(int direction);
+void initializeGameMatrix(int* gameMatrix[24][16]);
+void updateGameMatrix(int direction, int* gameMatrix[24][16]);
 void deleteFruits();
 void deleteKremlins();
-void moveKremlins();
-void searchVineForKremlin(struct Kremlin* kremlin);
-void moveKremlinInVine(struct Kremlin* kremlin);
-void moveDKJrHorizontal(int direction);
-void moveDKJrVertical(int direction);
-void moveDKJrUpAir();
-void moveDKJrLeftAir();
-void moveDKJrRightAir();
-void makeDKJrFall();
-void resetDKJrPosition();
-void printMatrix();
+void moveKremlins(int* gameMatrix[24][16]);
+void searchVineForKremlin(struct Kremlin* kremlin, int* gameMatrix[24][16]);
+void moveKremlinInVine(struct Kremlin* kremlin, int* gameMatrix[24][16]);
+void moveDKJrHorizontal(int direction, int* gameMatrix[24][16]);
+void moveDKJrVertical(int direction, int* gameMatrix[24][16]);
+void moveDKJrUpAir(int* gameMatrix[24][16]);
+void moveDKJrLeftAir(int* gameMatrix[24][16]);
+void moveDKJrRightAir(int* gameMatrix[24][16]);
+void makeDKJrFall(int* gameMatrix[24][16]);
+void resetDKJrPosition(int* gameMatrix[24][16]);
+void printMatrix(int* gameMatrix[24][16]);
 
 #endif //DONCEYKONGJR_GAME_H
