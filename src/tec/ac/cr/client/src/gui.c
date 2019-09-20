@@ -6,22 +6,6 @@
 #include "bitmapNode.h"
 #include "logic/Game.h"
 
-void init_screen(){
-
-    al_init();
-    al_init_primitives_addon();
-    al_init_image_addon();
-    al_install_keyboard();
-    pantalla = al_create_display(LARGO_PANTALLA, ANCHO_PANTALLA);
-
-    int largoXsprite = largo / 16;
-    int anchoYsprite = ancho / 24;
-
-   // printf("%d" , largoXsprite);
-  //  printf("%d" , anchoYsprite);
-
-}
-
 void init_matrix(){
     initializeGameMatrix(gameMatrix);
 }
@@ -33,25 +17,13 @@ void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display) {
     int fruit = 0;
     int redKremlin = 0;
     int blueKremlin = 0;
-    ALLEGRO_BITMAP *bitmap;
     al_hold_bitmap_drawing(true);
-    float start_time = al_get_time();
+    dibujarPiso();
+    dibujarLiana();
+    dibujarDKJr();
+/*
     for (int i = 0; i < 24; i++) {
         for (int j = 0; j < 16; j++) {
-
-            // Paint tree
-            if (gameMatrix[i][j] == (int*) 11) {
-                bitmap = al_load_bitmap("../src/imagenes/floor.png");
-                al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(i), 0);
-                floor++;
-            }
-            // Paint floor
-            if (gameMatrix[i][j] == (int*) 12) {
-                bitmap = al_load_bitmap("../src/imagenes/floor.png");
-                al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(i), 0);
-                floor++;
-
-            }
             // Paint vine
             if (gameMatrix[i][j] == (int*) 13) {
                 bitmap = al_load_bitmap("../src/imagenes/vine.png");
@@ -176,59 +148,186 @@ void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display) {
             }
 
             //Movimiento del mono
-            if (gameMatrix[i][j] == (int*) 411) {
-                bitmap = al_load_bitmap("../src/imagenes/walk_right1.png");
-                al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(i), 0);
-            }
-            if (gameMatrix[i][j] == (int*) 412) {
-                bitmap = al_load_bitmap("../src/imagenes/walk_right2.png");
-                al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(i), 0);
-            }
-            if (gameMatrix[i][j] == (int*) 413) {
-                dkjrbitmap = al_load_bitmap("../src/imagenes/walk_right3.png");
-                al_draw_bitmap(dkjrbitmap, calculateXposition(j), calculateYposition(i), 0);
-            }
-            if (gameMatrix[i][j] == (int*) 421) {
-                bitmap = al_load_bitmap("../src/imagenes/walk_left1.png");
-                al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(i), 0);
-            }
-            if (gameMatrix[i][j] == (int*) 422) {
-                bitmap = al_load_bitmap("../src/imagenes/walk_left2.png");
-                al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(i), 0);
-            }
-            if (gameMatrix[i][j] == (int*) 423) {
-                bitmap = al_load_bitmap("../src/imagenes/walk_left3.png");
-                al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(i), 0);
-            }
-            if (gameMatrix[i][j] == (int*) 431) {
-                bitmap = al_load_bitmap("../src/imagenes/onvine.png");
-                al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(i), 0);
-            }
-            if (gameMatrix[i][j] == (int*) 432) {
-                bitmap = al_load_bitmap("../src/imagenes/onvine.png");
-                al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(i), 0);
-            }
-            if (gameMatrix[i][j] == (int*) 441) {
-                bitmap = al_load_bitmap("../src/imagenes/jumpright.png");
-                al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(i), 0);
-            }
-            if (gameMatrix[i][j] == (int*)442) {
-                bitmap = al_load_bitmap("../src/imagenes/jumpleft.png");
-                al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(i), 0);
-            }if(gameMatrix[i][j] == (int*)0) {
+            if(gameMatrix[i][j] == (int*)0) {
                 bitmap = al_load_bitmap("../src/imagenes/empty.png");
                 al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(i), 0);
             }
         }
-    }
+    }*/
     al_hold_bitmap_drawing(false);
     al_flip_display();
-   // al_set_target_bitmap(al_get_backbuffer(display));
+    al_set_target_bitmap(al_get_backbuffer(display));
     updateGameMatrix(direction, gameMatrix);
-    printMatrix(gameMatrix);
+}
 
-    float framerate = 1 / (al_get_time() - start_time);
-    printf("%f, ", framerate);
+void dibujarPiso(){
+    bitmap = al_load_bitmap("../src/imagenes/floor.png");
+    int j = 0;
+    for (j = 4; j < 6; j++){
+        al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(2), 0);
+    }
+    for (j = 0; j < 9; j++){
+        al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(4), 0);
+    }
+    for (j = 8; j < 12; j++){
+        al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(5), 0);
+    }
+    al_draw_bitmap(bitmap, calculateXposition(2), calculateYposition(9), 0);
+    for (j = 11; j < 16; j++){
+        al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(13), 0);
+    }
+    for (j = 2; j < 4; j++){
+        al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(15), 0);
+    }
+    for (j = 12; j < 15; j++){
+        al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(20), 0);
+    }
+    al_draw_bitmap(bitmap, calculateXposition(4), calculateYposition(21), 0);
+    for (j = 9; j < 12; j++){
+        al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(21), 0);
+    }
+    for (j = 5; j < 9; j++){
+        al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(22), 0);
+    }
+    for (j = 0; j < 3; j++){
+        al_draw_bitmap(bitmap, calculateXposition(j), calculateYposition(23), 0);
+    }
+}
+
+void dibujarLiana(){
+    bitmap = al_load_bitmap("../src/imagenes/vine.png");
+    int i = 0;
+    for (i = 5; i < 21; i++){
+        al_draw_bitmap(bitmap, calculateXposition(0), calculateYposition(i), 0);
+    }
+    for (i = 10; i < 15; i++){
+        al_draw_bitmap(bitmap, calculateXposition(2), calculateYposition(i), 0);
+    }
+    for (i = 16; i < 21; i++){
+        al_draw_bitmap(bitmap, calculateXposition(2), calculateYposition(i), 0);
+    }
+    for (i = 5; i < 18; i++){
+        al_draw_bitmap(bitmap, calculateXposition(4), calculateYposition(i), 0);
+    }
+    for (i = 0; i < 2; i++){
+        al_draw_bitmap(bitmap, calculateXposition(6), calculateYposition(i), 0);
+    }
+    for (i = 5; i < 14; i++){
+        al_draw_bitmap(bitmap, calculateXposition(6), calculateYposition(i), 0);
+    }
+    for (i = 6; i < 18; i++){
+        al_draw_bitmap(bitmap, calculateXposition(8), calculateYposition(i), 0);
+    }
+    al_draw_bitmap(bitmap, calculateXposition(9), calculateYposition(0), 0);
+    for (i = 6; i < 16; i++){
+        al_draw_bitmap(bitmap, calculateXposition(10), calculateYposition(i), 0);
+    }
+    for (i = 0; i < 13; i++){
+        al_draw_bitmap(bitmap, calculateXposition(12), calculateYposition(i), 0);
+    }
+    for (i = 0; i < 13; i++){
+        al_draw_bitmap(bitmap, calculateXposition(14), calculateYposition(i), 0);
+    }
+    for (i = 14; i < 18; i++){
+        al_draw_bitmap(bitmap, calculateXposition(12), calculateYposition(i), 0);
+    }
+    for (i = 14; i < 18; i++){
+        al_draw_bitmap(bitmap, calculateXposition(14), calculateYposition(i), 0);
+    }
+}
+
+void dibujarDKJr(){
+    struct DKJr* localDKJr = returnDKJr();
+    int posI = localDKJr->posI;
+    int posJ = localDKJr->posJ;
+    bitmap = al_load_bitmap("../src/imagenes/empty.png");
+    al_draw_bitmap(bitmap, calculateXposition(previousIntJ), calculateYposition(previousIntI), 0);
+    switch ((int)gameMatrix[posI][posJ]) {
+        case 411:
+            bitmap = al_load_bitmap("../src/imagenes/walk_right1.png");
+            al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
+            if (previousIntI != (int*) posI || previousIntJ != (int*) posJ){
+                bitmap = al_load_bitmap("../src/imagenes/empty.png");
+                al_draw_bitmap(bitmap, calculateXposition(previousIntJ), calculateYposition(previousIntI), 0);
+            }
+            break;
+        case 412:
+            bitmap = al_load_bitmap("../src/imagenes/walk_right2.png");
+            al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
+            bitmap = al_load_bitmap("../src/imagenes/empty.png");
+            al_draw_bitmap(bitmap, calculateXposition(posJ - 1), calculateYposition(posI), 0);
+            if (previousIntI != (int*) posI || previousIntJ != (int*) posJ){
+                bitmap = al_load_bitmap("../src/imagenes/empty.png");
+                al_draw_bitmap(bitmap, calculateXposition(previousIntJ), calculateYposition(previousIntI), 0);
+            }
+            break;
+        case 413:
+            bitmap = al_load_bitmap("../src/imagenes/walk_right3.png");
+            al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
+            bitmap = al_load_bitmap("../src/imagenes/empty.png");
+            al_draw_bitmap(bitmap, calculateXposition(posJ - 1), calculateYposition(posI), 0);
+            if (previousIntI != (int*) posI || previousIntJ != (int*) posJ){
+                bitmap = al_load_bitmap("../src/imagenes/empty.png");
+                al_draw_bitmap(bitmap, calculateXposition(previousIntJ), calculateYposition(previousIntI), 0);
+            }
+            break;
+        case 421:
+            bitmap = al_load_bitmap("../src/imagenes/walk_left1.png");
+            al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
+            bitmap = al_load_bitmap("../src/imagenes/empty.png");
+            al_draw_bitmap(bitmap, calculateXposition(posJ + 1), calculateYposition(posI), 0);
+            if (previousIntI != (int*) posI || previousIntJ != (int*) posJ){
+                bitmap = al_load_bitmap("../src/imagenes/empty.png");
+                al_draw_bitmap(bitmap, calculateXposition(previousIntJ), calculateYposition(previousIntI), 0);
+            }
+            break;
+        case 422:
+            bitmap = al_load_bitmap("../src/imagenes/walk_left2.png");
+            al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
+            bitmap = al_load_bitmap("../src/imagenes/empty.png");
+            al_draw_bitmap(bitmap, calculateXposition(posJ + 1), calculateYposition(posI), 0);
+            if (previousIntI != (int*) posI || previousIntJ != (int*) posJ){
+                bitmap = al_load_bitmap("../src/imagenes/empty.png");
+                al_draw_bitmap(bitmap, calculateXposition(previousIntJ), calculateYposition(previousIntI), 0);
+            }
+            break;
+        case 423:
+            bitmap = al_load_bitmap("../src/imagenes/walk_left3.png");
+            al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
+            bitmap = al_load_bitmap("../src/imagenes/empty.png");
+            al_draw_bitmap(bitmap, calculateXposition(posJ + 1), calculateYposition(posI), 0);
+            if (previousIntI != (int*) posI || previousIntJ != (int*) posJ){
+                bitmap = al_load_bitmap("../src/imagenes/empty.png");
+                al_draw_bitmap(bitmap, calculateXposition(previousIntJ), calculateYposition(previousIntI), 0);
+            }
+            break;
+        case 431:
+            bitmap = al_load_bitmap("../src/imagenes/onvine.png");
+            al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
+            break;
+        case 432:
+            bitmap = al_load_bitmap("../src/imagenes/onvine.png");
+            al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
+            break;
+        case 441:
+            bitmap = al_load_bitmap("../src/imagenes/jumpright.png");
+            al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
+            if (previousIntI != (int*) posI || previousIntJ != (int*) posJ){
+                bitmap = al_load_bitmap("../src/imagenes/empty.png");
+                al_draw_bitmap(bitmap, calculateXposition(previousIntJ), calculateYposition(previousIntI), 0);
+            }
+            break;
+        case 442:
+            bitmap = al_load_bitmap("../src/imagenes/jumpleft.png");
+            al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
+            if (previousIntI != (int*) posI || previousIntJ != (int*) posJ){
+                bitmap = al_load_bitmap("../src/imagenes/empty.png");
+                al_draw_bitmap(bitmap, calculateXposition(previousIntJ), calculateYposition(previousIntI), 0);
+            }
+            break;
+    }
+    previousIntI = (int*) posI;
+    previousIntJ = (int*) posJ;
 }
 
 void createVines() {
@@ -987,12 +1086,12 @@ void createFloors() {
     insertFloor(floor40);
 }
 
-int calculateXposition(int i){
-    int posX = i * 44;
+int calculateXposition(int j){
+    int posX = j * 44;
     return posX;
 }
 
-int calculateYposition(int j){
-    int posY = j * 29;
+int calculateYposition(int i){
+    int posY = i * 29;
     return posY;
 }

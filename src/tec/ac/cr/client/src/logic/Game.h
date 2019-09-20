@@ -69,5 +69,6 @@ void moveDKJrRightAir(int* gameMatrix[24][16]);
 void makeDKJrFall(int* gameMatrix[24][16]);
 void resetDKJrPosition(int* gameMatrix[24][16]);
 void printMatrix(int* gameMatrix[24][16]);
+struct DKJr* returnDKJr();
 
 #endif //DONCEYKONGJR_GAME_H

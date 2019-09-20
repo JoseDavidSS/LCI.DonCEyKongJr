@@ -43,7 +43,7 @@ int init_game() {
 
     al_flip_display();
 
-    timer = al_create_timer(1.0 / 60);
+    timer = al_create_timer(1.0 / 13);
     event_queue = al_create_event_queue();
     al_register_event_source(event_queue, al_get_keyboard_event_source());
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
@@ -68,19 +68,26 @@ int run(){
         if(ev.type == ALLEGRO_EVENT_TIMER ) {
             al_get_keyboard_state(&keyboardState);
             if (al_key_down(&keyboardState, ALLEGRO_KEY_UP)){
-                action = -1;
+                action = 6;
             }else if (al_key_down(&keyboardState,ALLEGRO_KEY_DOWN)){
-                action = -1;
+                action = 7;
             }else if (al_key_down(&keyboardState,ALLEGRO_KEY_RIGHT)){
                 action = 1;
             }else if (al_key_down(&keyboardState,ALLEGRO_KEY_LEFT)){
                 action = 2;
+            }else if (al_key_down(&keyboardState,ALLEGRO_KEY_SPACE)){
+                action = 3;
+            }else if (al_key_down(&keyboardState,ALLEGRO_KEY_X)){
+                action = 5;
+            }else if (al_key_down(&keyboardState,ALLEGRO_KEY_Z)){
+                action = 4;
             }
             redraw = true;
         }
         if (redraw && al_is_event_queue_empty(event_queue)){
             redraw = false;
             dibujarMatriz(action, display);
+            action = -1;
             al_flip_display();
         }
     }
@@ -92,10 +99,9 @@ int run(){
 
 int main() {
 
-  //  init_screen();
-    init_game();
-    init_matrix();
-    run();
+   init_game();
+   init_matrix();
+   run();
 
     return 0;
 }

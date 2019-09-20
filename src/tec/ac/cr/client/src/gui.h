@@ -16,13 +16,17 @@
 
 static int largo = LARGO_PANTALLA;
 static int ancho = ANCHO_PANTALLA;
-ALLEGRO_DISPLAY *pantalla;
-ALLEGRO_BITMAP * dkjrbitmap;
+ALLEGRO_BITMAP *bitmap;
 static int* gameMatrix[24][16];
+static int* previousIntI = -1;
+static int* previousIntJ = -1;
 /// Inicia los componestes de la pantalla
 void init_screen();
 void init_matrix();
 void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display);
+void dibujarPiso();
+void dibujarLiana();
+void dibujarDKJr();
 void createVines();
 void createBlueKremlins();
 void createRedKremlins();
