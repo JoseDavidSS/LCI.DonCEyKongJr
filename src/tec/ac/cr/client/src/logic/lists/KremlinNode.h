@@ -5,8 +5,9 @@
 #ifndef DONCEYKONGJR_KREMLINNODE_H
 #define DONCEYKONGJR_KREMLINNODE_H
 
-#include <limits.h>
 #include "../entity/Kremlin.h"
+#include <windef.h>
+
 
 static struct KremlinNode* kremlinHead = NULL;
 

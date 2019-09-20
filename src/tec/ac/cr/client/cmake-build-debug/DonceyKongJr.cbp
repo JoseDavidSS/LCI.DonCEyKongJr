@@ -94,6 +94,33 @@
 		<Unit filename="C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/gui.h">
 			<Option target="DonceyKongJr"/>
 		</Unit>
+		<Unit filename="C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/Game.c">
+			<Option target="DonceyKongJr"/>
+		</Unit>
+		<Unit filename="C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/Game.h">
+			<Option target="DonceyKongJr"/>
+		</Unit>
+		<Unit filename="C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/entity/DKJr.h">
+			<Option target="DonceyKongJr"/>
+		</Unit>
+		<Unit filename="C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/entity/Fruit.h">
+			<Option target="DonceyKongJr"/>
+		</Unit>
+		<Unit filename="C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/entity/Kremlin.h">
+			<Option target="DonceyKongJr"/>
+		</Unit>
+		<Unit filename="C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/lists/FruitNode.c">
+			<Option target="DonceyKongJr"/>
+		</Unit>
+		<Unit filename="C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/lists/FruitNode.h">
+			<Option target="DonceyKongJr"/>
+		</Unit>
+		<Unit filename="C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/lists/KremlinNode.c">
+			<Option target="DonceyKongJr"/>
+		</Unit>
+		<Unit filename="C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/lists/KremlinNode.h">
+			<Option target="DonceyKongJr"/>
+		</Unit>
 		<Unit filename="C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/main.c">
 			<Option target="DonceyKongJr"/>
 		</Unit>

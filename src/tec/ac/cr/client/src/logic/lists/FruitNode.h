@@ -5,7 +5,7 @@
 #ifndef DONCEYKONGJR_FRUITNODE_H
 #define DONCEYKONGJR_FRUITNODE_H
 
-#include <vcruntime.h>
+#include <windef.h>
 #include "../entity/Fruit.h"
 
 static struct FruitNode* fruitHead = NULL;

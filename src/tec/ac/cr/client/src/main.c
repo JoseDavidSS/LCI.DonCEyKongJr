@@ -34,6 +34,5 @@ int main() {
         if (event.type == ALLEGRO_EVENT_KEY_UP || event.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
             corriendo = false;
     }
-    al_destroy_bitmap(fondo);
     al_destroy_display(pantalla);
 }

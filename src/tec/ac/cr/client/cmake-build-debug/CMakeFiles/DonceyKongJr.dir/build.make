@@ -95,11 +95,53 @@ CMakeFiles/DonceyKongJr.dir/src/bitmapNode.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/DonceyKongJr.dir/src/bitmapNode.c.s"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\josed\CLionProjects\DonCEy-Kong-Jr\src\tec\ac\cr\client\src\bitmapNode.c -o CMakeFiles\DonceyKongJr.dir\src\bitmapNode.c.s
 
+CMakeFiles/DonceyKongJr.dir/src/logic/Game.c.obj: CMakeFiles/DonceyKongJr.dir/flags.make
+CMakeFiles/DonceyKongJr.dir/src/logic/Game.c.obj: ../src/logic/Game.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\josed\CLionProjects\DonCEy-Kong-Jr\src\tec\ac\cr\client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/DonceyKongJr.dir/src/logic/Game.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\DonceyKongJr.dir\src\logic\Game.c.obj   -c C:\Users\josed\CLionProjects\DonCEy-Kong-Jr\src\tec\ac\cr\client\src\logic\Game.c
+
+CMakeFiles/DonceyKongJr.dir/src/logic/Game.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/DonceyKongJr.dir/src/logic/Game.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\josed\CLionProjects\DonCEy-Kong-Jr\src\tec\ac\cr\client\src\logic\Game.c > CMakeFiles\DonceyKongJr.dir\src\logic\Game.c.i
+
+CMakeFiles/DonceyKongJr.dir/src/logic/Game.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/DonceyKongJr.dir/src/logic/Game.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\josed\CLionProjects\DonCEy-Kong-Jr\src\tec\ac\cr\client\src\logic\Game.c -o CMakeFiles\DonceyKongJr.dir\src\logic\Game.c.s
+
+CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.obj: CMakeFiles/DonceyKongJr.dir/flags.make
+CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.obj: ../src/logic/lists/FruitNode.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\josed\CLionProjects\DonCEy-Kong-Jr\src\tec\ac\cr\client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\DonceyKongJr.dir\src\logic\lists\FruitNode.c.obj   -c C:\Users\josed\CLionProjects\DonCEy-Kong-Jr\src\tec\ac\cr\client\src\logic\lists\FruitNode.c
+
+CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\josed\CLionProjects\DonCEy-Kong-Jr\src\tec\ac\cr\client\src\logic\lists\FruitNode.c > CMakeFiles\DonceyKongJr.dir\src\logic\lists\FruitNode.c.i
+
+CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\josed\CLionProjects\DonCEy-Kong-Jr\src\tec\ac\cr\client\src\logic\lists\FruitNode.c -o CMakeFiles\DonceyKongJr.dir\src\logic\lists\FruitNode.c.s
+
+CMakeFiles/DonceyKongJr.dir/src/logic/lists/KremlinNode.c.obj: CMakeFiles/DonceyKongJr.dir/flags.make
+CMakeFiles/DonceyKongJr.dir/src/logic/lists/KremlinNode.c.obj: ../src/logic/lists/KremlinNode.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\josed\CLionProjects\DonCEy-Kong-Jr\src\tec\ac\cr\client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/DonceyKongJr.dir/src/logic/lists/KremlinNode.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\DonceyKongJr.dir\src\logic\lists\KremlinNode.c.obj   -c C:\Users\josed\CLionProjects\DonCEy-Kong-Jr\src\tec\ac\cr\client\src\logic\lists\KremlinNode.c
+
+CMakeFiles/DonceyKongJr.dir/src/logic/lists/KremlinNode.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/DonceyKongJr.dir/src/logic/lists/KremlinNode.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\josed\CLionProjects\DonCEy-Kong-Jr\src\tec\ac\cr\client\src\logic\lists\KremlinNode.c > CMakeFiles\DonceyKongJr.dir\src\logic\lists\KremlinNode.c.i
+
+CMakeFiles/DonceyKongJr.dir/src/logic/lists/KremlinNode.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/DonceyKongJr.dir/src/logic/lists/KremlinNode.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\josed\CLionProjects\DonCEy-Kong-Jr\src\tec\ac\cr\client\src\logic\lists\KremlinNode.c -o CMakeFiles\DonceyKongJr.dir\src\logic\lists\KremlinNode.c.s
+
 # Object files for target DonceyKongJr
 DonceyKongJr_OBJECTS = \
 "CMakeFiles/DonceyKongJr.dir/src/main.c.obj" \
 "CMakeFiles/DonceyKongJr.dir/src/gui.c.obj" \
-"CMakeFiles/DonceyKongJr.dir/src/bitmapNode.c.obj"
+"CMakeFiles/DonceyKongJr.dir/src/bitmapNode.c.obj" \
+"CMakeFiles/DonceyKongJr.dir/src/logic/Game.c.obj" \
+"CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.obj" \
+"CMakeFiles/DonceyKongJr.dir/src/logic/lists/KremlinNode.c.obj"
 
 # External object files for target DonceyKongJr
 DonceyKongJr_EXTERNAL_OBJECTS =
@@ -107,11 +149,14 @@ DonceyKongJr_EXTERNAL_OBJECTS =
 DonceyKongJr.exe: CMakeFiles/DonceyKongJr.dir/src/main.c.obj
 DonceyKongJr.exe: CMakeFiles/DonceyKongJr.dir/src/gui.c.obj
 DonceyKongJr.exe: CMakeFiles/DonceyKongJr.dir/src/bitmapNode.c.obj
+DonceyKongJr.exe: CMakeFiles/DonceyKongJr.dir/src/logic/Game.c.obj
+DonceyKongJr.exe: CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.obj
+DonceyKongJr.exe: CMakeFiles/DonceyKongJr.dir/src/logic/lists/KremlinNode.c.obj
 DonceyKongJr.exe: CMakeFiles/DonceyKongJr.dir/build.make
 DonceyKongJr.exe: CMakeFiles/DonceyKongJr.dir/linklibs.rsp
 DonceyKongJr.exe: CMakeFiles/DonceyKongJr.dir/objects1.rsp
 DonceyKongJr.exe: CMakeFiles/DonceyKongJr.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\josed\CLionProjects\DonCEy-Kong-Jr\src\tec\ac\cr\client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable DonceyKongJr.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\josed\CLionProjects\DonCEy-Kong-Jr\src\tec\ac\cr\client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable DonceyKongJr.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\DonceyKongJr.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

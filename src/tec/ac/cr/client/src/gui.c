@@ -15,10 +15,6 @@ void init_screen(){
     printf("%d" , largoXsprite);
     printf("%d" , anchoYsprite);
 
-
-    al_draw_bitmap(fondo, 0, 0, 0);
-    al_set_target_bitmap(al_get_backbuffer(pantalla));
-
 }
 void dibujarMatriz() {
 
@@ -54,35 +50,30 @@ void dibujarMatriz() {
 
             //Movimineto del kremlin rojo
             if (gameMatrix[i][j] == 2111) {
-                printf("rojo boca abierta arriba");
                 ALLEGRO_BITMAP *bitmap = searchRedKremlin(redKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/redcroc_onvine_down_open.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 redKremlin++;
             }
             if (gameMatrix[i][j] == 2112) {
-                printf("rojo boca cerrada arriba");
                 ALLEGRO_BITMAP *bitmap = searchRedKremlin(redKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/redcroc_onvine_up.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 redKremlin++;
             }
             if (gameMatrix[i][j] == 2121) {
-                printf("rojo boca abierta abajo");
                 ALLEGRO_BITMAP *bitmap = searchRedKremlin(redKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/redcroc_onvine_down_open.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 redKremlin++;
             }
             if (gameMatrix[i][j] == 2122) {
-                printf("rojo boca cerrada abajo");
                 ALLEGRO_BITMAP *bitmap = searchRedKremlin(redKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/redcroc_onvine_down.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 redKremlin++;
             }
             if (gameMatrix[i][j] == 2131) {
-                printf("rojo boca abierta izq");
                 ALLEGRO_BITMAP *bitmap = searchRedKremlin(redKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/redcroc_open_left.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
@@ -798,47 +789,47 @@ void createFruits() {
 
     ALLEGRO_BITMAP *fruit0;
     fruit0 = al_load_bitmap("../src/imagenes/fondomenu.png");
-    insertFruit(fruit0);
+    insertFruitBitmap(fruit0);
 
     ALLEGRO_BITMAP *fruit1;
     fruit1 = al_load_bitmap("../src/imagenes/fondomenu.png");
-    insertFruit(fruit1);
+    insertFruitBitmap(fruit1);
 
     ALLEGRO_BITMAP *fruit2;
     fruit2 = al_load_bitmap("../src/imagenes/fondomenu.png");
-    insertFruit(fruit2);
+    insertFruitBitmap(fruit2);
 
     ALLEGRO_BITMAP *fruit3;
     fruit3 = al_load_bitmap("../src/imagenes/fondomenu.png");
-    insertFruit(fruit3);
+    insertFruitBitmap(fruit3);
 
     ALLEGRO_BITMAP *fruit4;
     fruit4 = al_load_bitmap("../src/imagenes/fondomenu.png");
-    insertFruit(fruit4);
+    insertFruitBitmap(fruit4);
 
     ALLEGRO_BITMAP *fruit5;
     fruit5 = al_load_bitmap("../src/imagenes/fondomenu.png");
-    insertFruit(fruit5);
+    insertFruitBitmap(fruit5);
 
     ALLEGRO_BITMAP *fruit6;
     fruit6 = al_load_bitmap("../src/imagenes/fondomenu.png");
-    insertFruit(fruit6);
+    insertFruitBitmap(fruit6);
 
     ALLEGRO_BITMAP *fruit7;
     fruit7 = al_load_bitmap("../src/imagenes/fondomenu.png");
-    insertFruit(fruit7);
+    insertFruitBitmap(fruit7);
 
     ALLEGRO_BITMAP *fruit8;
     fruit8 = al_load_bitmap("../src/imagenes/fondomenu.png");
-    insertFruit(fruit8);
+    insertFruitBitmap(fruit8);
 
     ALLEGRO_BITMAP *fruit9;
     fruit9 = al_load_bitmap("../src/imagenes/fondomenu.png");
-    insertFruit(fruit9);
+    insertFruitBitmap(fruit9);
 
     ALLEGRO_BITMAP *fruit10;
     fruit10 = al_load_bitmap("../src/imagenes/fondomenu.png");
-    insertFruit(fruit10);
+    insertFruitBitmap(fruit10);
 }
 
 void createFloors() {

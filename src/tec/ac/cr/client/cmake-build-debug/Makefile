@@ -176,6 +176,87 @@ src/gui.c.s:
 	$(MAKE) -f CMakeFiles\DonceyKongJr.dir\build.make CMakeFiles/DonceyKongJr.dir/src/gui.c.s
 .PHONY : src/gui.c.s
 
+src/logic/Game.obj: src/logic/Game.c.obj
+
+.PHONY : src/logic/Game.obj
+
+# target to build an object file
+src/logic/Game.c.obj:
+	$(MAKE) -f CMakeFiles\DonceyKongJr.dir\build.make CMakeFiles/DonceyKongJr.dir/src/logic/Game.c.obj
+.PHONY : src/logic/Game.c.obj
+
+src/logic/Game.i: src/logic/Game.c.i
+
+.PHONY : src/logic/Game.i
+
+# target to preprocess a source file
+src/logic/Game.c.i:
+	$(MAKE) -f CMakeFiles\DonceyKongJr.dir\build.make CMakeFiles/DonceyKongJr.dir/src/logic/Game.c.i
+.PHONY : src/logic/Game.c.i
+
+src/logic/Game.s: src/logic/Game.c.s
+
+.PHONY : src/logic/Game.s
+
+# target to generate assembly for a file
+src/logic/Game.c.s:
+	$(MAKE) -f CMakeFiles\DonceyKongJr.dir\build.make CMakeFiles/DonceyKongJr.dir/src/logic/Game.c.s
+.PHONY : src/logic/Game.c.s
+
+src/logic/lists/FruitNode.obj: src/logic/lists/FruitNode.c.obj
+
+.PHONY : src/logic/lists/FruitNode.obj
+
+# target to build an object file
+src/logic/lists/FruitNode.c.obj:
+	$(MAKE) -f CMakeFiles\DonceyKongJr.dir\build.make CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.obj
+.PHONY : src/logic/lists/FruitNode.c.obj
+
+src/logic/lists/FruitNode.i: src/logic/lists/FruitNode.c.i
+
+.PHONY : src/logic/lists/FruitNode.i
+
+# target to preprocess a source file
+src/logic/lists/FruitNode.c.i:
+	$(MAKE) -f CMakeFiles\DonceyKongJr.dir\build.make CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.i
+.PHONY : src/logic/lists/FruitNode.c.i
+
+src/logic/lists/FruitNode.s: src/logic/lists/FruitNode.c.s
+
+.PHONY : src/logic/lists/FruitNode.s
+
+# target to generate assembly for a file
+src/logic/lists/FruitNode.c.s:
+	$(MAKE) -f CMakeFiles\DonceyKongJr.dir\build.make CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.s
+.PHONY : src/logic/lists/FruitNode.c.s
+
+src/logic/lists/KremlinNode.obj: src/logic/lists/KremlinNode.c.obj
+
+.PHONY : src/logic/lists/KremlinNode.obj
+
+# target to build an object file
+src/logic/lists/KremlinNode.c.obj:
+	$(MAKE) -f CMakeFiles\DonceyKongJr.dir\build.make CMakeFiles/DonceyKongJr.dir/src/logic/lists/KremlinNode.c.obj
+.PHONY : src/logic/lists/KremlinNode.c.obj
+
+src/logic/lists/KremlinNode.i: src/logic/lists/KremlinNode.c.i
+
+.PHONY : src/logic/lists/KremlinNode.i
+
+# target to preprocess a source file
+src/logic/lists/KremlinNode.c.i:
+	$(MAKE) -f CMakeFiles\DonceyKongJr.dir\build.make CMakeFiles/DonceyKongJr.dir/src/logic/lists/KremlinNode.c.i
+.PHONY : src/logic/lists/KremlinNode.c.i
+
+src/logic/lists/KremlinNode.s: src/logic/lists/KremlinNode.c.s
+
+.PHONY : src/logic/lists/KremlinNode.s
+
+# target to generate assembly for a file
+src/logic/lists/KremlinNode.c.s:
+	$(MAKE) -f CMakeFiles\DonceyKongJr.dir\build.make CMakeFiles/DonceyKongJr.dir/src/logic/lists/KremlinNode.c.s
+.PHONY : src/logic/lists/KremlinNode.c.s
+
 src/main.obj: src/main.c.obj
 
 .PHONY : src/main.obj
@@ -218,6 +299,15 @@ help:
 	@echo ... src/gui.obj
 	@echo ... src/gui.i
 	@echo ... src/gui.s
+	@echo ... src/logic/Game.obj
+	@echo ... src/logic/Game.i
+	@echo ... src/logic/Game.s
+	@echo ... src/logic/lists/FruitNode.obj
+	@echo ... src/logic/lists/FruitNode.i
+	@echo ... src/logic/lists/FruitNode.s
+	@echo ... src/logic/lists/KremlinNode.obj
+	@echo ... src/logic/lists/KremlinNode.i
+	@echo ... src/logic/lists/KremlinNode.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
