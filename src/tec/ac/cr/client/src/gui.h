@@ -19,8 +19,6 @@ static int ancho = ANCHO_PANTALLA;
 ALLEGRO_DISPLAY *pantalla;
 ALLEGRO_BITMAP * fondo;
 
-static int bancoEnemigosRojos[10];
-
 static int gameMatrix[24][16] = {{0,1,2,3,4,5,6,7,8,9,1,1,1,1,1,1},
                           {1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
                           {2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3},
@@ -46,10 +44,16 @@ static int gameMatrix[24][16] = {{0,1,2,3,4,5,6,7,8,9,1,1,1,1,1,1},
                           {2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3},
                           {3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2}};
 
-
-
 /// Inicia los componestes de la pantalla
 void init_screen();
 void dibujarMatriz();
+void createVines();
+void createBlueKremlins();
+void createRedKremlins();
+void createFruits();
+void createFloor();
+
+
+
 
 #endif //DONCEYKONGJR_GUI_H
