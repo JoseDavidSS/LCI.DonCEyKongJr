@@ -4,6 +4,7 @@
 
 #include "gui.h"
 #include "bitmapNode.h"
+#include "logic/Game.h"
 
 void init_screen(){
 
@@ -12,10 +13,16 @@ void init_screen(){
     int largoXsprite = largo / 16;
     int anchoYsprite = ancho / 24;
 
-    printf("%d" , largoXsprite);
-    printf("%d" , anchoYsprite);
+   // printf("%d" , largoXsprite);
+  //  printf("%d" , anchoYsprite);
 
 }
+
+void init_matrix(){
+    initializeGameMatrix(gameMatrix);
+    printMatrix(gameMatrix);
+}
+
 void dibujarMatriz() {
 
     int vine = 0;
@@ -23,16 +30,18 @@ void dibujarMatriz() {
     int fruit = 0;
     int redKremlin = 0;
     int blueKremlin = 0;
+    int x = 0;
+    int y = 0;
 
-    for (int i = 0; i <= 24; i++) {
-        for (int j = 0; i <= 16; j++) {
+    for (int i = 0; i < 24; i++) {
+        for (int j = 0; j < 16; j++) {
 
             // Paint tree
-            if (gameMatrix[i][j] == 11) {
+            if (gameMatrix[i][j] == (int*) 11) {
                 printf("pintar arbol 1");
             }
             // Paint floor
-            if (gameMatrix[i][j] == 12) {
+            if (gameMatrix[i][j] == (int*) 12) {
                 printf("pintar floor 2");
                 ALLEGRO_BITMAP *bitmap = searchFloor(floor);
                 bitmap = al_load_bitmap("../src/imagenes/floor.png");
@@ -41,7 +50,7 @@ void dibujarMatriz() {
 
             }
             // Paint vine
-            if (gameMatrix[i][j] == 13) {
+            if (gameMatrix[i][j] == (int*) 13) {
                 ALLEGRO_BITMAP *bitmap = searchVine(vine);
                 bitmap = al_load_bitmap("../src/imagenes/vine.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
@@ -49,50 +58,50 @@ void dibujarMatriz() {
             }
 
             //Movimineto del kremlin rojo
-            if (gameMatrix[i][j] == 2111) {
+            if (gameMatrix[i][j] == (int*) 2111) {
                 ALLEGRO_BITMAP *bitmap = searchRedKremlin(redKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/redcroc_onvine_down_open.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 redKremlin++;
             }
-            if (gameMatrix[i][j] == 2112) {
+            if (gameMatrix[i][j] == (int*) 2112) {
                 ALLEGRO_BITMAP *bitmap = searchRedKremlin(redKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/redcroc_onvine_up.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 redKremlin++;
             }
-            if (gameMatrix[i][j] == 2121) {
+            if (gameMatrix[i][j] == (int*) 2121) {
                 ALLEGRO_BITMAP *bitmap = searchRedKremlin(redKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/redcroc_onvine_down_open.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 redKremlin++;
             }
-            if (gameMatrix[i][j] == 2122) {
+            if (gameMatrix[i][j] == (int*) 2122) {
                 ALLEGRO_BITMAP *bitmap = searchRedKremlin(redKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/redcroc_onvine_down.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 redKremlin++;
             }
-            if (gameMatrix[i][j] == 2131) {
+            if (gameMatrix[i][j] == (int*) 2131) {
                 ALLEGRO_BITMAP *bitmap = searchRedKremlin(redKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/redcroc_open_left.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 redKremlin++;
             }
-            if (gameMatrix[i][j] == 2132) {
+            if (gameMatrix[i][j] == (int*) 2132) {
                 printf("rojo boca cerrado izq");
                 ALLEGRO_BITMAP *bitmap = searchRedKremlin(redKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/redcroc_left.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 redKremlin++;
             }
-            if (gameMatrix[i][j] == 2141) {
+            if (gameMatrix[i][j] == (int*) 2141) {
                 ALLEGRO_BITMAP *bitmap = searchRedKremlin(redKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/redcroc_open.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 redKremlin++;
             }
-            if (gameMatrix[i][j] == 2142) {
+            if (gameMatrix[i][j] == (int*) 2142) {
                 ALLEGRO_BITMAP *bitmap = searchRedKremlin(redKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/redcroc.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
@@ -100,49 +109,49 @@ void dibujarMatriz() {
             }
 
             //Movimineto del kremlin azul
-            if (gameMatrix[i][j] == 2211) {
+            if (gameMatrix[i][j] == (int*) 2211) {
                 ALLEGRO_BITMAP *bitmap = searchBlueKremlin(blueKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/bluecroc_onvine_up_open.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 blueKremlin++;
             }
-            if (gameMatrix[i][j] == 2212) {
+            if (gameMatrix[i][j] == (int*) 2212) {
                 ALLEGRO_BITMAP *bitmap = searchBlueKremlin(blueKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/bluecroc_onvine_up.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 blueKremlin++;
             }
-            if (gameMatrix[i][j] == 2221) {
+            if (gameMatrix[i][j] == (int*) 2221) {
                 ALLEGRO_BITMAP *bitmap = searchBlueKremlin(blueKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/bluecroc_onvine_down_open.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 blueKremlin++;
             }
-            if (gameMatrix[i][j] == 2222) {
+            if (gameMatrix[i][j] == (int*) 2222) {
                 ALLEGRO_BITMAP *bitmap = searchBlueKremlin(blueKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/bluecroc_onvine_down.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 blueKremlin++;
             }
-            if (gameMatrix[i][j] == 2231) {
+            if (gameMatrix[i][j] == (int*) 2231) {
                 ALLEGRO_BITMAP *bitmap = searchBlueKremlin(blueKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/bluecroc_open_left.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 blueKremlin++;
             }
-            if (gameMatrix[i][j] == 2232) {
+            if (gameMatrix[i][j] == (int*) 2232) {
                 ALLEGRO_BITMAP *bitmap = searchBlueKremlin(blueKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/bluecroc_left.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 blueKremlin++;
             }
-            if (gameMatrix[i][j] == 2241) {
+            if (gameMatrix[i][j] == (int*) 2241) {
                 ALLEGRO_BITMAP *bitmap = searchBlueKremlin(blueKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/bluecroc_open.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 blueKremlin++;
             }
-            if (gameMatrix[i][j] == 2242) {
+            if (gameMatrix[i][j] == (int*) 2242) {
                 ALLEGRO_BITMAP *bitmap = searchBlueKremlin(blueKremlin);
                 bitmap = al_load_bitmap("../src/imagenes/bluecroc.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
@@ -150,37 +159,37 @@ void dibujarMatriz() {
             }
 
             // Frutas de tres tipos
-            if (gameMatrix[i][j] == 311) {
+            if (gameMatrix[i][j] == (int*) 311) {
                 ALLEGRO_BITMAP *bitmap = searchFruit(fruit);
                 bitmap = al_load_bitmap("../src/imagenes/apple.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 fruit++;
             }
-            if (gameMatrix[i][j] == 312) {
+            if (gameMatrix[i][j] == (int*) 312) {
                 ALLEGRO_BITMAP *bitmap = searchFruit(fruit);
                 bitmap = al_load_bitmap("../src/imagenes/apple_onvine.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 fruit++;
             }
-            if (gameMatrix[i][j] == 321) {
+            if (gameMatrix[i][j] == (int*) 321) {
                 ALLEGRO_BITMAP *bitmap = searchFruit(fruit);
                 bitmap = al_load_bitmap("../src/imagenes/banana.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 fruit++;
             }
-            if (gameMatrix[i][j] == 322) {
+            if (gameMatrix[i][j] == (int*) 322) {
                 ALLEGRO_BITMAP *bitmap = searchFruit(fruit);
                 bitmap = al_load_bitmap("../src/imagenes/banana_onvine.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 fruit++;
             }
-            if (gameMatrix[i][j] == 331) {
+            if (gameMatrix[i][j] == (int*) 331) {
                 ALLEGRO_BITMAP *bitmap = searchFruit(fruit);
                 bitmap = al_load_bitmap("../src/imagenes/mango.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
                 fruit++;
             }
-            if (gameMatrix[i][j] == 332) {
+            if (gameMatrix[i][j] == (int*) 332) {
                 ALLEGRO_BITMAP *bitmap = searchFruit(fruit);
                 bitmap = al_load_bitmap("../src/imagenes/mango_onvine.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
@@ -188,52 +197,52 @@ void dibujarMatriz() {
             }
 
             //Movimiento del mono
-            if (gameMatrix[i][j] == 411) {
+            if (gameMatrix[i][j] == (int*) 411) {
                 ALLEGRO_BITMAP * bitmap;
                 bitmap = al_load_bitmap("../src/imagenes/walk_right1.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
             }
-            if (gameMatrix[i][j] == 412) {
+            if (gameMatrix[i][j] == (int*) 412) {
                 ALLEGRO_BITMAP *bitmap;
                 bitmap = al_load_bitmap("../src/imagenes/walk_right2.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
             }
-            if (gameMatrix[i][j] == 413) {
+            if (gameMatrix[i][j] == (int*) 413) {
                 ALLEGRO_BITMAP *bitmap;
                 bitmap = al_load_bitmap("../src/imagenes/walk_right3.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
             }
-            if (gameMatrix[i][j] == 421) {
+            if (gameMatrix[i][j] == (int*) 421) {
                 ALLEGRO_BITMAP *bitmap;
                 bitmap = al_load_bitmap("../src/imagenes/walk_left1.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
             }
-            if (gameMatrix[i][j] == 422) {
+            if (gameMatrix[i][j] == (int*) 422) {
                 ALLEGRO_BITMAP *bitmap;
                 bitmap = al_load_bitmap("../src/imagenes/walk_left2.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
             }
-            if (gameMatrix[i][j] == 423) {
+            if (gameMatrix[i][j] == (int*) 423) {
                 ALLEGRO_BITMAP *bitmap;
                 bitmap = al_load_bitmap("../src/imagenes/walk_left3.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
             }
-            if (gameMatrix[i][j] == 431) {
+            if (gameMatrix[i][j] == (int*) 431) {
                 ALLEGRO_BITMAP *bitmap;
                 bitmap = al_load_bitmap("../src/imagenes/onvine.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
             }
-            if (gameMatrix[i][j] == 432) {
+            if (gameMatrix[i][j] == (int*) 432) {
                 ALLEGRO_BITMAP *bitmap;
                 bitmap = al_load_bitmap("../src/imagenes/onvine.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
             }
-            if (gameMatrix[i][j] == 441) {
+            if (gameMatrix[i][j] == (int*) 441) {
                 ALLEGRO_BITMAP *bitmap;
                 bitmap = al_load_bitmap("../src/imagenes/jumpright.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);
             }
-            if (gameMatrix[i][j] == 442) {
+            if (gameMatrix[i][j] == (int*)442) {
                 ALLEGRO_BITMAP *bitmap;
                 bitmap = al_load_bitmap("../src/imagenes/jumpleft.png");
                 al_draw_bitmap(bitmap, calculateXposition(i), calculateYposition(j), 0);

@@ -6,23 +6,35 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/bitmapNode.h
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/bitmapNode.h
 allegro5/bitmap.h
 -
 
-C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/gui.c
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/gui.c
 gui.h
-C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/gui.h
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/gui.h
 bitmapNode.h
-C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/bitmapNode.h
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/bitmapNode.h
+logic/Game.h
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/Game.h
 
-C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/gui.h
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/gui.h
 stdio.h
 -
 allegro5/allegro.h
 -
 allegro5/allegro_primitives.h
-C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/allegro5/allegro_primitives.h
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/allegro5/allegro_primitives.h
 allegro5/allegro_image.h
-C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/allegro5/allegro_image.h
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/allegro5/allegro_image.h
+
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/Game.h
+../logic/entity/Kremlin.h
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/Kremlin.h
+entity/DKJr.h
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/DKJr.h
+
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/DKJr.h
+
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/Kremlin.h
 

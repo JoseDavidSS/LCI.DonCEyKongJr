@@ -6,10 +6,13 @@
 #include <allegro5/allegro_primitives.h>
 #include <dumb.h>
 #include "gui.h"
+#include "logic/Game.h"
 
 int main() {
 
     al_init();
+
+    init_matrix();
 
     al_init_primitives_addon();
     al_init_image_addon();
@@ -22,17 +25,22 @@ int main() {
     al_register_event_source(queue, al_get_keyboard_event_source());
     al_register_event_source(queue, al_get_display_event_source(pantalla));
 
-
+    createVines();
+    createBlueKremlins();
+    createRedKremlins();
+    createFruits();
+    createFloors();
 
     bool corriendo = true;
     while (corriendo){
 
         al_flip_display();
 
-        ALLEGRO_EVENT event;
-        al_wait_for_event(queue, &event);
-        if (event.type == ALLEGRO_EVENT_KEY_UP || event.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
-            corriendo = false;
+        //ALLEGRO_EVENT event;
+        //al_wait_for_event(queue, &event);
+        //if (event.type == ALLEGRO_EVENT_KEY_UP || event.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
+          //  corriendo = false;
+        dibujarMatriz();
     }
     al_destroy_display(pantalla);
 }

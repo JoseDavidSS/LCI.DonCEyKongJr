@@ -7,12 +7,12 @@
 void insertVine(ALLEGRO_BITMAP* bitmap){
     struct BitMapNode* tmp = (struct BitMapNode*) malloc(sizeof(struct BitMapNode));
     tmp->bitmap = bitmap;
-    tmp->next = vineHead;
-    vineHead = tmp;
+    tmp->next = vineBitMapHead;
+    vineBitMapHead = tmp;
 }
 
 struct BitMapNode* searchVine(int position){
-    struct BitMapNode* tmp = vineHead;
+    struct BitMapNode* tmp = vineBitMapHead;
     int i = 0;
     while (i != position){
         tmp = tmp->next;
@@ -24,12 +24,12 @@ struct BitMapNode* searchVine(int position){
 void insertBlueKremlin(ALLEGRO_BITMAP* bitmap){
     struct BitMapNode* tmp = (struct BitMapNode*) malloc(sizeof(struct BitMapNode));
     tmp->bitmap = bitmap;
-    tmp->next = blueKremlinHead;
-    vineHead = tmp;
+    tmp->next = blueKremlinBitMapHead;
+    blueKremlinBitMapHead = tmp;
 }
 
 struct BitMapNode* searchBlueKremlin (int position){
-    struct BitMapNode* tmp = blueKremlinHead;
+    struct BitMapNode* tmp = blueKremlinBitMapHead;
     int i = 0;
     while (i != position){
         tmp = tmp->next;
@@ -41,12 +41,12 @@ struct BitMapNode* searchBlueKremlin (int position){
 void insertRedKremlin(ALLEGRO_BITMAP* bitmap){
     struct BitMapNode* tmp = (struct BitMapNode*) malloc(sizeof(struct BitMapNode));
     tmp->bitmap = bitmap;
-    tmp->next = redKremlinHead;
-    vineHead = tmp;
+    tmp->next = redKremlinBitMapHead;
+    redKremlinBitMapHead = tmp;
 }
 
 struct BitMapNode* searchRedKremlin (int position){
-    struct BitMapNode* tmp = redKremlinHead;
+    struct BitMapNode* tmp = redKremlinBitMapHead;
     int i = 0;
     while (i != position){
         tmp = tmp->next;
@@ -58,12 +58,12 @@ struct BitMapNode* searchRedKremlin (int position){
 void insertFruitBitmap (ALLEGRO_BITMAP* bitmap){
     struct BitMapNode* tmp = (struct BitMapNode*) malloc(sizeof(struct BitMapNode));
     tmp->bitmap = bitmap;
-    tmp->next = fruitHead;
-    vineHead = tmp;
+    tmp->next = fruitBitMapHead;
+    fruitBitMapHead = tmp;
 }
 
 struct BitMapNode* searchFruit (int position){
-    struct BitMapNode* tmp = fruitHead;
+    struct BitMapNode* tmp = fruitBitMapHead;
     int i = 0;
     while (i != position){
         tmp = tmp->next;
@@ -75,12 +75,12 @@ struct BitMapNode* searchFruit (int position){
 void insertFloor (ALLEGRO_BITMAP* bitmap){
     struct BitMapNode* tmp = (struct BitMapNode*) malloc(sizeof(struct BitMapNode));
     tmp->bitmap = bitmap;
-    tmp->next = floorHead;
-    vineHead = tmp;
+    tmp->next = floorBitMapHead;
+    floorBitMapHead = tmp;
 }
 
 struct BitMapNode* searchFloor (int position){
-    struct BitMapNode* tmp = floorHead;
+    struct BitMapNode* tmp = floorBitMapHead;
     int i = 0;
     while (i != position){
         tmp = tmp->next;

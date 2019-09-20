@@ -7,11 +7,11 @@
 
 #include <allegro5/bitmap.h>
 
-static struct BitMapNode* vineHead = NULL;
-static struct BitMapNode* blueKremlinHead = NULL;
-static struct BitMapNode* redKremlinHead = NULL;
-static struct BitMapNode* fruitHead = NULL;
-static struct BitMapNode* floorHead = NULL;
+static struct BitMapNode* vineBitMapHead = NULL;
+static struct BitMapNode* blueKremlinBitMapHead = NULL;
+static struct BitMapNode* redKremlinBitMapHead = NULL;
+static struct BitMapNode* fruitBitMapHead = NULL;
+static struct BitMapNode* floorBitMapHead = NULL;
 
 struct BitMapNode{
     ALLEGRO_BITMAP* bitmap;
