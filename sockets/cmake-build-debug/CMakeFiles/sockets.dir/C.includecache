@@ -23,4 +23,8 @@ netinet/in.h
 -
 string.h
 -
+stdio.h
+-
+gtk-3.0/gtk/gtk.h
+-
 
