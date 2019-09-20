@@ -11,9 +11,9 @@ void initializeGameMatrix(int* gameMatrix[24][16]){
         for (int j = 0; j < columns; j++){
             if ((i == 20 && (j >= 12 && j <= 14)) || (i == 21 && (j == 4 || (j >= 9 && j <= 11))) || (i == 22 && (j >= 5 && j <= 8)) || (i == 23 && j <= 2)){
                 gameMatrix[i][j] = (int *) tree;
-            }else if ((i == 4 && (j >= 4 && j <= 5)) || (i == 4 && j <= 8) || (i == 5 && (j >= 8 && j <= 11)) || (i == 9 && j == 2) || (i == 13 && j >= 11) || (i == 15 && (j >= 2 && j <= 3))){
+            }else if ((i == 2 && (j >= 4 && j <= 5)) || (i == 4 && j <= 8) || (i == 5 && (j >= 8 && j <= 11)) || (i == 9 && j == 2) || (i == 13 && j >= 11) || (i == 15 && (j >= 2 && j <= 3))){
                 gameMatrix[i][j] = (int *) tile;
-            }else if ((j == 0 && (i >= 5 && i <= 20)) || (j == 2 && ((i >= 10 && i <= 14) || (i >= 16 && i <= 20))) || (j == 4 && (i >= 5 && i <= 17)) || (j == 7 && (i <= 1 || (i >= 5 && i <= 13))) || (j == 8 && (i >= 6 && i <= 17)) || (j == 9 && i == 0) || (j == 10 && (i >= 6 && i <= 15)) || ((j == 12 || j == 14) && (i <= 12 || (i >= 14 && i <= 17)))){
+            }else if ((j == 0 && (i >= 5 && i <= 20)) || (j == 2 && ((i >= 10 && i <= 14) || (i >= 16 && i <= 20))) || (j == 4 && (i >= 5 && i <= 17)) || (j == 6 && (i <= 1 || (i >= 5 && i <= 13))) || (j == 8 && (i >= 7 && i <= 17)) || (j == 9 && i == 0) || (j == 10 && (i >= 6 && i <= 15)) || (j == 12 && (i <= 12 || (i >= 14 && i <= 17))) || (j == 14 && (i <= 12 || (i >= 14 && i <= 17)))){
                 gameMatrix[i][j] = (int *) vine;
             }else if (i == 22 && j == 0){
                 gameMatrix[i][j] = (int *) dkjrRight1;
@@ -249,6 +249,15 @@ void moveDKJrHorizontal(int direction, int* gameMatrix[24][16]){
                 posJ += dkJr.velocity;
                 dkJr.posJ = posJ;
                 switch (currentSprite){
+                    case 421:
+                        gameMatrix[posI][posJ] = (int*) dkjrRight1;
+                        break;
+                    case 422:
+                        gameMatrix[posI][posJ] = (int*) dkjrRight1;
+                        break;
+                    case 423:
+                        gameMatrix[posI][posJ] = (int*) dkjrRight1;
+                        break;
                     case 411:
                         gameMatrix[posI][posJ] = (int*) dkjrRight2;
                         break;
@@ -258,6 +267,8 @@ void moveDKJrHorizontal(int direction, int* gameMatrix[24][16]){
                     case 413:
                         gameMatrix[posI][posJ] = (int*) dkjrRight1;
                         break;
+                }if (gameMatrix[posI + 1][posJ] == 0){
+                    dkJr.falling = 1;
                 }
                 break;
             }else if (posJ < columns - 1 && (gameMatrix[posI][posJ + dkJr.velocity] == (int*) 21 || gameMatrix[posI][posJ + dkJr.velocity] == (int*) 22)){
@@ -294,6 +305,8 @@ void moveDKJrHorizontal(int direction, int* gameMatrix[24][16]){
                     case 413:
                         gameMatrix[posI][posJ] = (int*) dkjrRight1;
                         break;
+                }if (gameMatrix[posI + 1][posJ] == 0){
+                    dkJr.falling = 1;
                 }
                 break;
             }else{
@@ -324,6 +337,8 @@ void moveDKJrHorizontal(int direction, int* gameMatrix[24][16]){
                     case 423:
                         gameMatrix[posI][posJ] = (int*) dkjrLeft1;
                         break;
+                }if (gameMatrix[posI + 1][posJ] == 0){
+                    dkJr.falling = 1;
                 }
                 break;
             }else if (posJ > 0 && (gameMatrix[posI][posJ - dkJr.velocity] == (int*) 21 || gameMatrix[posI][posJ - dkJr.velocity] == (int*) 22)){
@@ -342,6 +357,15 @@ void moveDKJrHorizontal(int direction, int* gameMatrix[24][16]){
                 posJ -= dkJr.velocity;
                 dkJr.posJ = posJ;
                 switch (currentSprite){
+                    case 411:
+                        gameMatrix[posI][posJ] = (int*) dkjrLeft1;
+                        break;
+                    case 412:
+                        gameMatrix[posI][posJ] = (int*) dkjrLeft1;
+                        break;
+                    case 413:
+                        gameMatrix[posI][posJ] = (int*) dkjrLeft1;
+                        break;
                     case 421:
                         gameMatrix[posI][posJ] = (int*) dkjrLeft2;
                         break;
@@ -351,6 +375,8 @@ void moveDKJrHorizontal(int direction, int* gameMatrix[24][16]){
                     case 423:
                         gameMatrix[posI][posJ] = (int*) dkjrLeft1;
                         break;
+                }if (gameMatrix[posI + 1][posJ] == 0){
+                    dkJr.falling = 1;
                 }
                 break;
             }else{
@@ -813,7 +839,7 @@ void makeDKJrFall(int* gameMatrix[24][16]){
     int posJ = dkJr.posJ;
     int currentSprite = 0;
     if (posI < rows - 1 && (gameMatrix[posI + dkJr.velocity][posJ] == (int*) tile || gameMatrix[posI + dkJr.velocity][posJ] == (int*) tree)){
-        if (dkJr.falling > 2){
+        if (dkJr.falling > 4){
             dkJr.lives--;
             dkJr.dead = 1;
             dkJr.falling = 0;
@@ -853,12 +879,16 @@ void resetDKJrPosition(int* gameMatrix[24][16]){
         gameMatrix[posI][posJ] = (int*) vine;
         posI = 22;
         posJ = 0;
+        dkJr.posI = posI;
+        dkJr.posJ = posJ;
         gameMatrix[posI][posJ] = (int*) dkjrRight1;
         dkJr.inVine = 0;
     }else{
         gameMatrix[posI][posJ] = (int*) nothing;
         posI = 22;
         posJ = 0;
+        dkJr.posI = posI;
+        dkJr.posJ = posJ;
         gameMatrix[posI][posJ] = (int*) dkjrRight1;
     }
 }
@@ -871,4 +901,8 @@ void printMatrix(int* gameMatrix[24][16]){
         }
         printf("\n");
     }
+}
+
+struct DKJr* returnDKJr(){
+    return &dkJr;
 }

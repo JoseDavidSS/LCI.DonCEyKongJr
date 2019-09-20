@@ -6,27 +6,15 @@
 
 #IncludeRegexTransform: 
 
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/bitmapNode.h
-allegro5/bitmap.h
--
-
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/gui.c
-gui.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/gui.h
-bitmapNode.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/bitmapNode.h
-logic/Game.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/Game.h
-
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/gui.h
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/Game.c
 stdio.h
 -
-allegro5/allegro.h
--
-allegro5/allegro_primitives.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/allegro5/allegro_primitives.h
-allegro5/allegro_image.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/allegro5/allegro_image.h
+Game.h
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/Game.h
+lists/FruitNode.h
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/lists/FruitNode.h
+lists/KremlinNode.h
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/lists/KremlinNode.h
 
 C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/Game.h
 ../logic/entity/Kremlin.h
@@ -36,5 +24,19 @@ C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/DKJr.h
 
 C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/DKJr.h
 
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/Fruit.h
+
 C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/Kremlin.h
+
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/lists/FruitNode.h
+windef.h
+-
+../entity/Fruit.h
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/Fruit.h
+
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/lists/KremlinNode.h
+../entity/Kremlin.h
+C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/Kremlin.h
+windef.h
+-
 
