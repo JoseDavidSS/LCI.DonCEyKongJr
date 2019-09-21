@@ -236,6 +236,12 @@ void moveKremlinInVine(struct Kremlin* kremlin, int* gameMatrix[24][16]){
                 case 2122:
                     gameMatrix[kremlin->posI][posJ] = (int*) redKremlinDown1;
                     break;
+                case 2111:
+                    gameMatrix[kremlin->posI][posJ] = (int*) redKremlinUp2;
+                    break;
+                case 2112:
+                    gameMatrix[kremlin->posI][posJ] = (int*) redKremlinUp1;
+                    break;
             }
         }else{
             switch (currentSprite){
@@ -252,26 +258,20 @@ void moveKremlinInVine(struct Kremlin* kremlin, int* gameMatrix[24][16]){
         kremlin->posI += kremlin->velocity;
         currentSprite = (int) gameMatrix[posI][posJ];
         gameMatrix[posI][posJ] = (int*) vine;
-        if (kremlin->type == 21){
-            switch (currentSprite){
-                case 2111:
-                    gameMatrix[kremlin->posI][posJ] = (int*) redKremlinUp2;
-                    break;
-                case 2112:
-                    gameMatrix[kremlin->posI][posJ] = (int*) redKremlinUp1;
-                    break;
-            }
-        }else{
-            switch (currentSprite){
-                case 2211:
-                    gameMatrix[kremlin->posI][posJ] = (int*) blueKremlinUp2;
-                    break;
-                case 2212:
-                    gameMatrix[kremlin->posI][posJ] = (int*) blueKremlinUp1;
-                    break;
-            }
+        switch (currentSprite){
+            case 2121:
+                gameMatrix[kremlin->posI][posJ] = (int*) redKremlinUp2;
+                break;
+            case 2122:
+                gameMatrix[kremlin->posI][posJ] = (int*) redKremlinUp1;
+                break;
+            case 2111:
+                gameMatrix[kremlin->posI][posJ] = (int*) redKremlinDown2;
+                break;
+            case 2112:
+                gameMatrix[kremlin->posI][posJ] = (int*) redKremlinDown1;
+                break;
         }
-        gameMatrix[kremlin->posI][posJ] = (int*) kremlin->type;
     }else{
         kremlin->inVine = 0;
         kremlin->onScreen = 0;
