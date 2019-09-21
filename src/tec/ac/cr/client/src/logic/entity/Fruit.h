@@ -11,6 +11,8 @@ struct Fruit{
     int posJ;
     int onScreen;
     int pointsValue;
+    int type;
+    int placed;
 };
 
 #endif //DONCEYKONGJR_FRUIT_H
