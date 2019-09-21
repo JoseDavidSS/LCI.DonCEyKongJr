@@ -9,10 +9,13 @@ struct Kremlin{
     int id;
     int posI;
     int posJ;
+    int previousI;
+    int previousJ;
     int onScreen;
     int velocity;
     int inVine;
     int type;
+    int placed;
 };
 
 #endif //DONCEYKONGJR_KREMLIN_H

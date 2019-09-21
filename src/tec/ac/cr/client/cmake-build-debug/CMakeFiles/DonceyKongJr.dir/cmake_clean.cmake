@@ -1,7 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/DonceyKongJr.dir/src/main.c.obj"
   "CMakeFiles/DonceyKongJr.dir/src/gui.c.obj"
-  "CMakeFiles/DonceyKongJr.dir/src/bitmapNode.c.obj"
   "CMakeFiles/DonceyKongJr.dir/src/logic/Game.c.obj"
   "CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.obj"
   "CMakeFiles/DonceyKongJr.dir/src/logic/lists/KremlinNode.c.obj"

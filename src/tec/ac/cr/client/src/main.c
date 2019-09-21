@@ -7,13 +7,12 @@
 #include <dumb.h>
 #include "gui.h"
 #include "logic/Game.h"
+#include "logic/entity/Fruit.h"
+#include "logic/lists/FruitNode.h"
+#include "logic/lists/KremlinNode.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-
-enum MYKEYS {
-    KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_SPACE
-};
 
 static int largoPantalla = 700;
 static int anchoPantalla = 700;
@@ -43,7 +42,7 @@ int init_game() {
 
     al_flip_display();
 
-    timer = al_create_timer(1.0 / 13);
+    timer = al_create_timer(1.0 / 5);
     event_queue = al_create_event_queue();
     al_register_event_source(event_queue, al_get_keyboard_event_source());
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
@@ -51,11 +50,8 @@ int init_game() {
     return 0;
 }
 
-
-
 int run(){
     int action = -1;
-    ALLEGRO_KEYBOARD_STATE keyboardState;
     while(!done) {
         ALLEGRO_EVENT ev;
         al_wait_for_event(event_queue, &ev);
@@ -65,31 +61,35 @@ int run(){
                     done = true;
             }
         }
-        if(ev.type == ALLEGRO_EVENT_TIMER ) {
-            al_get_keyboard_state(&keyboardState);
-            if (al_key_down(&keyboardState, ALLEGRO_KEY_UP)){
-                action = 6;
-            }else if (al_key_down(&keyboardState,ALLEGRO_KEY_DOWN)){
-                action = 7;
-            }else if (al_key_down(&keyboardState,ALLEGRO_KEY_RIGHT)){
-                action = 1;
-            }else if (al_key_down(&keyboardState,ALLEGRO_KEY_LEFT)){
-                action = 2;
-            }else if (al_key_down(&keyboardState,ALLEGRO_KEY_SPACE)){
-                action = 3;
-            }else if (al_key_down(&keyboardState,ALLEGRO_KEY_X)){
-                action = 5;
-            }else if (al_key_down(&keyboardState,ALLEGRO_KEY_Z)){
-                action = 4;
+        if (ev.type == ALLEGRO_EVENT_KEY_DOWN){
+            switch (ev.keyboard.keycode){
+                case ALLEGRO_KEY_UP:
+                    action = 6;
+                    break;
+                case ALLEGRO_KEY_DOWN:
+                    action = 7;
+                    break;
+                case ALLEGRO_KEY_RIGHT:
+                    action = 1;
+                    break;
+                case ALLEGRO_KEY_LEFT:
+                    action = 2;
+                    break;
+                case ALLEGRO_KEY_SPACE:
+                    action = 3;
+                    break;
+                case ALLEGRO_KEY_X:
+                    action = 5;
+                    break;
+                case ALLEGRO_KEY_Z:
+                    action = 4;
+                    break;
             }
-            redraw = true;
         }
-        if (redraw && al_is_event_queue_empty(event_queue)){
-            redraw = false;
-            dibujarMatriz(action, display);
-            action = -1;
-            al_flip_display();
-        }
+        redraw = false;
+        dibujarMatriz(action, display);
+        action = -1;
+        al_flip_display();
     }
     al_destroy_display(display);
     al_destroy_timer(timer);
@@ -101,9 +101,11 @@ int main() {
 
    init_game();
    init_matrix();
+   struct Kremlin kremlin = {0, 3, 5, -1, -1, 1, 1, 0, 22, 0};
+   insertKremlin(&kremlin);
    run();
 
-    return 0;
+   return 0;
 }
 
 #pragma clang diagnostic pop

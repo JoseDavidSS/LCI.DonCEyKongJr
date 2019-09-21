@@ -122,33 +122,6 @@ DonceyKongJr/fast:
 	$(MAKE) -f CMakeFiles\DonceyKongJr.dir\build.make CMakeFiles/DonceyKongJr.dir/build
 .PHONY : DonceyKongJr/fast
 
-src/bitmapNode.obj: src/bitmapNode.c.obj
-
-.PHONY : src/bitmapNode.obj
-
-# target to build an object file
-src/bitmapNode.c.obj:
-	$(MAKE) -f CMakeFiles\DonceyKongJr.dir\build.make CMakeFiles/DonceyKongJr.dir/src/bitmapNode.c.obj
-.PHONY : src/bitmapNode.c.obj
-
-src/bitmapNode.i: src/bitmapNode.c.i
-
-.PHONY : src/bitmapNode.i
-
-# target to preprocess a source file
-src/bitmapNode.c.i:
-	$(MAKE) -f CMakeFiles\DonceyKongJr.dir\build.make CMakeFiles/DonceyKongJr.dir/src/bitmapNode.c.i
-.PHONY : src/bitmapNode.c.i
-
-src/bitmapNode.s: src/bitmapNode.c.s
-
-.PHONY : src/bitmapNode.s
-
-# target to generate assembly for a file
-src/bitmapNode.c.s:
-	$(MAKE) -f CMakeFiles\DonceyKongJr.dir\build.make CMakeFiles/DonceyKongJr.dir/src/bitmapNode.c.s
-.PHONY : src/bitmapNode.c.s
-
 src/gui.obj: src/gui.c.obj
 
 .PHONY : src/gui.obj
@@ -293,9 +266,6 @@ help:
 	@echo ... edit_cache
 	@echo ... DonceyKongJr
 	@echo ... rebuild_cache
-	@echo ... src/bitmapNode.obj
-	@echo ... src/bitmapNode.i
-	@echo ... src/bitmapNode.s
 	@echo ... src/gui.obj
 	@echo ... src/gui.i
 	@echo ... src/gui.s

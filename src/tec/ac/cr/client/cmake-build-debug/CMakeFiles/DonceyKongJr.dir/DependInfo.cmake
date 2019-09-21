@@ -4,7 +4,6 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/bitmapNode.c" "C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/cmake-build-debug/CMakeFiles/DonceyKongJr.dir/src/bitmapNode.c.obj"
   "C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/gui.c" "C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/cmake-build-debug/CMakeFiles/DonceyKongJr.dir/src/gui.c.obj"
   "C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/Game.c" "C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/cmake-build-debug/CMakeFiles/DonceyKongJr.dir/src/logic/Game.c.obj"
   "C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/lists/FruitNode.c" "C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/cmake-build-debug/CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.obj"
