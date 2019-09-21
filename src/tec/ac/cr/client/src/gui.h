@@ -17,7 +17,6 @@
 static int largo = LARGO_PANTALLA;
 static int ancho = ANCHO_PANTALLA;
 ALLEGRO_BITMAP* bitmap;
-ALLEGRO_BITMAP* bitmap2;
 static int* gameMatrix[24][16];
 static int previousIntI = -1;
 static int previousIntJ = -1;

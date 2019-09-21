@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/gui.c
-gui.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/gui.h
-logic/Game.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/Game.h
-logic/lists/KremlinNode.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/lists/KremlinNode.h
-logic/lists/FruitNode.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/lists/FruitNode.h
-
 C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/gui.h
 stdio.h
 -
