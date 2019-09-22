@@ -23,7 +23,7 @@ static int previousIntJ = -1;
 /// Inicia los componestes de la pantalla
 void init_screen();
 void init_matrix();
-void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display);
+void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display, ALLEGRO_BITMAP* bitmap);
 void dibujarPiso();
 void dibujarLiana();
 void dibujarDKJr();

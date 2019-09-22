@@ -11,11 +11,9 @@ void init_matrix(){
     initializeGameMatrix(gameMatrix);
 }
 
-void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display) {
+void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display, ALLEGRO_BITMAP* bitmap){
     al_hold_bitmap_drawing(true);
-    ALLEGRO_BITMAP * fondo;
-    fondo = al_load_bitmap("../src/imagenes/fondo.png");
-    al_draw_bitmap(fondo, 0, 0, 0);
+    al_draw_bitmap(bitmap, 0, 0, 0);
     dibujarKremlin();
     dibujarFruta();
     dibujarDKJr();
