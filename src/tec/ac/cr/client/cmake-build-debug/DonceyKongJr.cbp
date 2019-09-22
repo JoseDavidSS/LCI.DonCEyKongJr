@@ -82,12 +82,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/bitmapNode.c">
-			<Option target="DonceyKongJr"/>
-		</Unit>
-		<Unit filename="C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/bitmapNode.h">
-			<Option target="DonceyKongJr"/>
-		</Unit>
 		<Unit filename="C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/gui.c">
 			<Option target="DonceyKongJr"/>
 		</Unit>

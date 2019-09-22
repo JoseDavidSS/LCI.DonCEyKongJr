@@ -19,6 +19,7 @@ static int anchoPantalla = 700;
 ALLEGRO_DISPLAY* display = NULL;
 ALLEGRO_EVENT_QUEUE* event_queue = NULL;
 ALLEGRO_TIMER* timer = NULL;
+ALLEGRO_BITMAP  *background = NULL;
 bool redraw;
 bool done;
 
@@ -28,10 +29,16 @@ int init_game() {
 
     al_init();
 
-    display = al_create_display(largoPantalla, anchoPantalla);
     al_init_primitives_addon();
     al_init_image_addon();
     al_install_keyboard();
+
+    display = al_create_display(largoPantalla, anchoPantalla);
+
+    background = al_load_bitmap("../src/imagenes/fondo.png");
+
+    al_draw_bitmap(background,0,0,0);
+
 
     al_flip_display();
 

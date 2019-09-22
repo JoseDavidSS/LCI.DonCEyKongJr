@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/gui.c
+gui.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/gui.h
+logic/Game.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/Game.h
+logic/lists/KremlinNode.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/lists/KremlinNode.h
+logic/lists/FruitNode.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/lists/FruitNode.h
+
 C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/gui.h
 stdio.h
 -
@@ -24,17 +34,19 @@ C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/entit
 
 C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/entity/DKJr.h
 
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/entity/Fruit.h
+
 C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/entity/Kremlin.h
 
-C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/main.c
-allegro5/allegro.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/lists/FruitNode.h
+windef.h
 -
-allegro5/allegro_image.h
-C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/allegro5/allegro_image.h
-allegro5/allegro_primitives.h
+../entity/Fruit.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/entity/Fruit.h
+
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/lists/KremlinNode.h
+../entity/Kremlin.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/entity/Kremlin.h
+windef.h
 -
-gui.h
-C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/gui.h
-logic/Game.h
-C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/Game.h
 
