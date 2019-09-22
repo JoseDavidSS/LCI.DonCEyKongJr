@@ -17,7 +17,6 @@
 static int largoPantalla = 700;
 static int anchoPantalla = 700;
 
-bool key[5];
 ALLEGRO_DISPLAY* display = NULL;
 ALLEGRO_EVENT_QUEUE* event_queue = NULL;
 ALLEGRO_TIMER* timer = NULL;
@@ -26,11 +25,6 @@ bool done;
 
 int init_game() {
 
-    key[1] = false;
-    key[2] = false;
-    key[3] = false;
-    key[4] = false;
-    key[5] = false;
     redraw = true;
 
     al_init();

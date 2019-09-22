@@ -18,6 +18,12 @@ void initializeGameMatrix(int* gameMatrix[24][16]){
                 gameMatrix[i][j] = (int *) vine;
             }else if (i == 22 && j == 0){
                 gameMatrix[i][j] = (int *) dkjrRight1;
+            }else if ((i >= 1 && i <= 3) && (j >= 0 && j <= 2)){
+                gameMatrix[i][j] = (int*) dk;
+            }else if (i == 3 && j == 3){
+                gameMatrix[i][j] = (int*) mario;
+            }else if (i == 0 && j == 7){
+                gameMatrix[i][j] = (int*) key;
             }else{
                 gameMatrix[i][j] = (int *) nothing;
             }
@@ -26,7 +32,16 @@ void initializeGameMatrix(int* gameMatrix[24][16]){
 }
 
 void updateGameMatrix(int direction, int* gameMatrix[24][16]){
-    if (dkJr.dead == 1){
+    if ((dkJr.posI == 0 && dkJr.posJ == 7) || (dkJr.posI == 1 && dkJr.posJ == 4) || (dkJr.posI == 1 && dkJr.posJ == 5)){
+        dkJr.lives++;
+        dkJr.dead = 0;
+        dkJr.dead = 0;
+        direction = 0;
+        dkJr.airUp = 0;
+        dkJr.airRight = 0;
+        dkJr.airLeft = 0;
+        resetDKJrPosition(gameMatrix);
+    }if (dkJr.dead == 1){
         resetDKJrPosition(gameMatrix);
         dkJr.dead = 0;
         direction = 0;

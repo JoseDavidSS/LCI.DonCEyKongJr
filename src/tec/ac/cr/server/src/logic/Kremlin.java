@@ -1,21 +1,31 @@
 package logic;
 
-public abstract class Kremlin extends Entity {
+public class Kremlin extends Entity {
 
-    public Kremlin(Integer type){
-        super(3, 5);
-        this.inVine = false;
+    public Kremlin(Integer posI, Integer posJ, Integer type){
+        super(posI, posJ);
+        this.inVine = 0;
         this.type = type;
+        this.id = 1;
+        this.previousI = -1;
+        this.previousJ = -1;
+        this.placed = 0;
+        this.falling = 0;
     }
 
-    private Boolean inVine;
+    private Integer inVine;
     private Integer type;
+    private Integer id;
+    private Integer previousI;
+    private Integer previousJ;
+    private Integer placed;
+    private Integer falling;
 
-    public Boolean getInVine() {
+    public Integer getInVine() {
         return inVine;
     }
 
-    public void setInVine(Boolean inVine) {
+    public void setInVine(Integer inVine) {
         this.inVine = inVine;
     }
 
@@ -27,21 +37,43 @@ public abstract class Kremlin extends Entity {
         this.type = type;
     }
 
-    public void upgradeVelocity(){
-        this.velocity += 1;
+    public Integer getId() {
+        return id;
     }
 
-    public void moveIPos(Integer i){
-        this.posI += i;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void moveJPos(Integer j){
-
+    public Integer getPreviousI() {
+        return previousI;
     }
 
-    public void choseVine(){
-
+    public void setPreviousI(Integer previousI) {
+        this.previousI = previousI;
     }
 
-    public abstract void checkVineEnd();
+    public Integer getPreviousJ() {
+        return previousJ;
+    }
+
+    public void setPreviousJ(Integer previousJ) {
+        this.previousJ = previousJ;
+    }
+
+    public Integer getPlaced() {
+        return placed;
+    }
+
+    public void setPlaced(Integer placed) {
+        this.placed = placed;
+    }
+
+    public Integer getFalling() {
+        return falling;
+    }
+
+    public void setFalling(Integer falling) {
+        this.falling = falling;
+    }
 }
