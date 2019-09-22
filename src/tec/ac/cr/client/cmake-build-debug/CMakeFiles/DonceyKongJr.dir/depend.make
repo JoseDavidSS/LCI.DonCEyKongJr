@@ -22,6 +22,7 @@ CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.obj: ../src/logic/entity
 CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.obj: ../src/logic/lists/FruitNode.c
 CMakeFiles/DonceyKongJr.dir/src/logic/lists/FruitNode.c.obj: ../src/logic/lists/FruitNode.h
 
+CMakeFiles/DonceyKongJr.dir/src/logic/lists/KremlinNode.c.obj: ../src/logic/entity/Kremlin.h
 CMakeFiles/DonceyKongJr.dir/src/logic/lists/KremlinNode.c.obj: ../src/logic/lists/KremlinNode.c
 CMakeFiles/DonceyKongJr.dir/src/logic/lists/KremlinNode.c.obj: ../src/logic/lists/KremlinNode.h
 

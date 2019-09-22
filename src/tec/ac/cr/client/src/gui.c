@@ -13,6 +13,9 @@ void init_matrix(){
 
 void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display) {
     al_hold_bitmap_drawing(true);
+    ALLEGRO_BITMAP * fondo;
+    fondo = al_load_bitmap("../src/imagenes/fondo.png");
+    al_draw_bitmap(fondo, 0, 0, 0);
     dibujarKremlin();
     dibujarFruta();
     dibujarDKJr();
