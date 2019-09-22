@@ -6,67 +6,35 @@
 
 #IncludeRegexTransform: 
 
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/gui.c
-gui.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/gui.h
-logic/Game.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/Game.h
-logic/lists/KremlinNode.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/lists/KremlinNode.h
-logic/lists/FruitNode.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/lists/FruitNode.h
-
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/gui.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/gui.h
 stdio.h
 -
 allegro5/allegro.h
 -
 allegro5/allegro_primitives.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/allegro5/allegro_primitives.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/allegro5/allegro_primitives.h
 allegro5/allegro_image.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/allegro5/allegro_image.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/allegro5/allegro_image.h
 
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/Game.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/Game.h
 ../logic/entity/Kremlin.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/Kremlin.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/entity/Kremlin.h
 entity/DKJr.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/DKJr.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/entity/DKJr.h
 
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/DKJr.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/entity/DKJr.h
 
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/Fruit.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/entity/Kremlin.h
 
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/Kremlin.h
-
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/lists/FruitNode.h
-windef.h
--
-../entity/Fruit.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/Fruit.h
-
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/lists/KremlinNode.h
-../entity/Kremlin.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/Kremlin.h
-windef.h
--
-
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/main.c
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/main.c
 allegro5/allegro.h
 -
 allegro5/allegro_image.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/allegro5/allegro_image.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/allegro5/allegro_image.h
 allegro5/allegro_primitives.h
 -
-dumb.h
--
 gui.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/gui.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/gui.h
 logic/Game.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/Game.h
-logic/entity/Fruit.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/entity/Fruit.h
-logic/lists/FruitNode.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/lists/FruitNode.h
-logic/lists/KremlinNode.h
-C:/CProjects/DonceyKongJr/src/tec/ac/cr/client/src/logic/lists/KremlinNode.h
+C:/Users/josed/CLionProjects/DonCEy-Kong-Jr/src/tec/ac/cr/client/src/logic/Game.h
 
