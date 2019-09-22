@@ -4,6 +4,8 @@
 #include <allegro5/allegro.h>
 #include "allegro5/allegro_image.h"
 #include <allegro5/allegro_primitives.h>
+#include <dumb.h>
+#include <windows.h>
 #include "gui.h"
 #include "logic/Game.h"
 #include "logic/entity/Fruit.h"
@@ -15,11 +17,13 @@
 
 static int largoPantalla = 700;
 static int anchoPantalla = 700;
+static volatile int test = 0;
 
 ALLEGRO_DISPLAY* display = NULL;
 ALLEGRO_EVENT_QUEUE* event_queue = NULL;
 ALLEGRO_TIMER* timer = NULL;
 ALLEGRO_BITMAP  *background = NULL;
+ALLEGRO_THREAD* thread = NULL;
 bool redraw;
 bool done;
 
@@ -94,6 +98,7 @@ int run(){
             al_flip_display();
         }else{
             draw++;
+            test += 10;
         }
     }
     al_destroy_display(display);
@@ -102,8 +107,16 @@ int run(){
     return 0;
 }
 
-int main() {
+static void* Func_Thread(ALLEGRO_THREAD *thr, void* arg){
+    int i = 0;
+    while (i == 0){
+        printf("%d \n", test);
+    }
+}
 
+int main() {
+   thread = al_create_thread(Func_Thread, "");
+   al_start_thread(thread);
    init_game();
    init_matrix();
    struct Kremlin kremlin1 = {0, 1, 7, -1, -1, 1, 1, 0, 22, 0, 0};

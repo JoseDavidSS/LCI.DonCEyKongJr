@@ -74,8 +74,8 @@ public class MainWindowController implements Initializable {
 
     @FXML
     void beginServer(ActionEvent event) {
-        System.out.println("Server Iniciado");
-        beginServerButton.setDisable(true);
+        Test test = new Test();
+        test.start();
     }
 
     @FXML
@@ -88,12 +88,12 @@ public class MainWindowController implements Initializable {
         }else{
             switch (kremlin){
                 case "Kremlin Rojo":
-                    Kremlin redKremlin = new Kremlin(Integer.getInteger(posI), Integer.getInteger(posJ), 21);
+                    Kremlin redKremlin = new Kremlin(Integer.valueOf(posI), Integer.valueOf(posJ), 21);
                     game.addEnemy(redKremlin, currentPlayer);
                     System.out.println("Rojo");
                     break;
                 case "Kremlin Azul":
-                    Kremlin blueKremlin = new Kremlin(Integer.getInteger(posI), Integer.getInteger(posJ), 22);
+                    Kremlin blueKremlin = new Kremlin(Integer.valueOf(posI), Integer.valueOf(posJ), 22);
                     game.addEnemy(blueKremlin, currentPlayer);
                     System.out.println("Azul");
                     break;
@@ -114,15 +114,15 @@ public class MainWindowController implements Initializable {
         }else{
             switch (type){
                 case "Manzana":
-                    Fruit apple = new Fruit(Integer.getInteger(posI), Integer.getInteger(posJ), Integer.getInteger(points), 31);
+                    Fruit apple = new Fruit(Integer.valueOf(posI), Integer.valueOf(posJ), Integer.valueOf(points), 31);
                     game.addFruit(apple, currentPlayer);
                     break;
                 case "Banano":
-                    Fruit banana = new Fruit(Integer.getInteger(posI), Integer.getInteger(posJ), Integer.getInteger(points), 32);
+                    Fruit banana = new Fruit(Integer.valueOf(posI), Integer.valueOf(posJ), Integer.valueOf(points), 32);
                     game.addFruit(banana, currentPlayer);
                     break;
                 case "Mango":
-                    Fruit mango = new Fruit(Integer.getInteger(posI), Integer.getInteger(posJ), Integer.getInteger(points), 33);
+                    Fruit mango = new Fruit(Integer.valueOf(posI), Integer.valueOf(posJ), Integer.valueOf(points), 33);
                     game.addFruit(mango, currentPlayer);
                     break;
             }
@@ -139,7 +139,7 @@ public class MainWindowController implements Initializable {
         if (posI.equals("") || posJ.equals("") || currentPlayer == 0){
             System.out.println("Llene todo");
         }else{
-            Fruit fruit = new Fruit(Integer.getInteger(posI), Integer.getInteger(posJ), 0, 31);
+            Fruit fruit = new Fruit(Integer.valueOf(posI), Integer.valueOf(posJ), 0, 31);
             game.addFruit(fruit, currentPlayer);
             deleteFruitIEntry.setText("");
             deleteFruitJEntry.setText("");

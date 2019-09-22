@@ -27,10 +27,6 @@ public class Game {
         return game;
     }
 
-    public void initializeServer(){
-
-    }
-
     public void addEnemy(Kremlin kremlin, Integer player){
         System.out.println("Kremlin agregado");
         if (player == 1){
