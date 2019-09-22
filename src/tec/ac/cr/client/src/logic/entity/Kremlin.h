@@ -16,6 +16,7 @@ struct Kremlin{
     int inVine;
     int type;
     int placed;
+    int falling;
 };
 
 #endif //DONCEYKONGJR_KREMLIN_H
