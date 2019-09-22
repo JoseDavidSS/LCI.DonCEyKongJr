@@ -4,7 +4,6 @@
 #include <allegro5/allegro.h>
 #include "allegro5/allegro_image.h"
 #include <allegro5/allegro_primitives.h>
-#include <dumb.h>
 #include "gui.h"
 #include "logic/Game.h"
 #include "logic/entity/Fruit.h"
