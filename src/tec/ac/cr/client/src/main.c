@@ -55,6 +55,8 @@ int init_game() {
 }
 
 int run(){
+    ALLEGRO_BITMAP* bitmap;
+    bitmap = al_load_bitmap("../src/imagenes/fondo.png");
     int draw = 0;
     int action = -1;
     while(!done) {
@@ -93,7 +95,7 @@ int run(){
         }
         if (draw == 2){
             draw = 0;
-            dibujarMatriz(action, display);
+            dibujarMatriz(action, display, bitmap);
             action = -1;
             al_flip_display();
         }else{
