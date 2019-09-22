@@ -41,7 +41,7 @@ int init_game() {
 
     al_flip_display();
 
-    timer = al_create_timer(1.0 / 5);
+    timer = al_create_timer(1.0 / 15);
     event_queue = al_create_event_queue();
     al_register_event_source(event_queue, al_get_keyboard_event_source());
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
@@ -50,6 +50,7 @@ int init_game() {
 }
 
 int run(){
+    int draw = 0;
     int action = -1;
     while(!done) {
         ALLEGRO_EVENT ev;
@@ -85,10 +86,14 @@ int run(){
                     break;
             }
         }
-        redraw = false;
-        dibujarMatriz(action, display);
-        action = -1;
-        al_flip_display();
+        if (draw == 2){
+            draw = 0;
+            dibujarMatriz(action, display);
+            action = -1;
+            al_flip_display();
+        }else{
+            draw++;
+        }
     }
     al_destroy_display(display);
     al_destroy_timer(timer);
@@ -100,8 +105,10 @@ int main() {
 
    init_game();
    init_matrix();
-   struct Kremlin kremlin = {0, 3, 5, -1, -1, 1, 1, 0, 22, 0};
-   insertKremlin(&kremlin);
+   struct Kremlin kremlin1 = {0, 1, 7, -1, -1, 1, 1, 0, 22, 0, 0};
+   insertKremlin(&kremlin1);
+   struct Fruit fruit1 = {1, 10, 6, 1, 100, 31, 0};
+   insertFruit(&fruit1);
    run();
 
    return 0;

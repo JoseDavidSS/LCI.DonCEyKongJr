@@ -208,36 +208,35 @@ void dibujarKremlin(){
         posJ = kremlin->posJ;
         previousI = kremlin->previousI;
         previousJ = kremlin->previousJ;
-        if (kremlin->type == 21){
+        if (kremlin->onScreen == 0){
+            bitmap = al_load_bitmap("../src/imagenes/empty.png");
+            al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
+            kremlinNode = kremlinNode->next;
+        }else if (kremlin->type == 21){
             switch ((int) gameMatrix[posI][posJ]){
                 case 2111:
                     bitmap = al_load_bitmap("../src/imagenes/redcroc_onvine_up.png");
                     al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
-                    bitmap = al_load_bitmap("../src/imagenes/vine.png");
+                    bitmap = al_load_bitmap("../src/imagenes/empty.png");
                     al_draw_bitmap(bitmap, calculateXposition(previousJ), calculateYposition(previousI), 0);
                     break;
                 case 2112:
                     bitmap = al_load_bitmap("../src/imagenes/redcroc_onvine_up_open.png");
                     al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
-                    bitmap = al_load_bitmap("../src/imagenes/vine.png");
+                    bitmap = al_load_bitmap("../src/imagenes/empty.png");
                     al_draw_bitmap(bitmap, calculateXposition(previousJ), calculateYposition(previousI), 0);
                     break;
                 case 2121:
                     bitmap = al_load_bitmap("../src/imagenes/redcroc_onvine_down.png");
                     al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
-                    if (posI == previousI + 2){
-                        bitmap2 = al_load_bitmap("../src/imagenes/empty.png");
-                        al_draw_bitmap(bitmap2, calculateXposition(previousJ), calculateYposition(previousI), 0);
-                    }else{
-                        bitmap2 = al_load_bitmap("../src/imagenes/vine.png");
-                        al_draw_bitmap(bitmap2, calculateXposition(previousJ), calculateYposition(previousI), 0);
-                    }
+                    bitmap = al_load_bitmap("../src/imagenes/empty.png");
+                    al_draw_bitmap(bitmap, calculateXposition(previousJ), calculateYposition(previousI), 0);
                     break;
                 case 2122:
                     bitmap = al_load_bitmap("../src/imagenes/redcroc_onvine_down_open.png");
                     al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
-                    bitmap2 = al_load_bitmap("../src/imagenes/vine.png");
-                    al_draw_bitmap(bitmap2, calculateXposition(previousJ), calculateYposition(previousI), 0);
+                    bitmap = al_load_bitmap("../src/imagenes/empty.png");
+                    al_draw_bitmap(bitmap, calculateXposition(previousJ), calculateYposition(previousI), 0);
                     break;
                 case 2131:
                     bitmap = al_load_bitmap("../src/imagenes/redcroc_left.png");
@@ -278,10 +277,14 @@ void dibujarKremlin(){
                 case 2211:
                     bitmap = al_load_bitmap("../src/imagenes/bluecroc_onvine_up.png");
                     al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
+                    bitmap = al_load_bitmap("../src/imagenes/empty.png");
+                    al_draw_bitmap(bitmap, calculateXposition(previousJ), calculateYposition(previousI), 0);
                     break;
                 case 2212:
                     bitmap = al_load_bitmap("../src/imagenes/bluecroc_onvine_up_open.png");
                     al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
+                    bitmap = al_load_bitmap("../src/imagenes/empty.png");
+                    al_draw_bitmap(bitmap, calculateXposition(previousJ), calculateYposition(previousI), 0);
                     break;
                 case 2221:
                     bitmap = al_load_bitmap("../src/imagenes/bluecroc_onvine_down.png");
@@ -292,8 +295,8 @@ void dibujarKremlin(){
                 case 2222:
                     bitmap = al_load_bitmap("../src/imagenes/bluecroc_onvine_down_open.png");
                     al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
-                    bitmap2 = al_load_bitmap("../src/imagenes/vine.png");
-                    al_draw_bitmap(bitmap2, calculateXposition(previousJ), calculateYposition(previousI), 0);
+                    bitmap = al_load_bitmap("../src/imagenes/empty.png");
+                    al_draw_bitmap(bitmap, calculateXposition(previousJ), calculateYposition(previousI), 0);
                     break;
                 case 2231:
                     bitmap = al_load_bitmap("../src/imagenes/bluecroc_left.png");

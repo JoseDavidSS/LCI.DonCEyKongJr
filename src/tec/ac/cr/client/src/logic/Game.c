@@ -2,6 +2,7 @@
 // Created by Kevin Cordero Zúñiga on 9/18/2019.
 //
 #include <stdio.h>
+#include <stdlib.h>
 #include "Game.h"
 #include "lists/FruitNode.h"
 #include "lists/KremlinNode.h"
@@ -125,8 +126,11 @@ void updateKremlins(int* gameMatrix[24][16]){
         if (kremlin->onScreen == 0){
             deleteKremlinByID(kremlin->id);
             kremlinNode = kremlinNode->next;
+        }else if (kremlin->falling >= 1){
+            makeKremlinFall(kremlin, gameMatrix);
+            kremlinNode = kremlinNode->next;
         }else if (kremlin->placed == 0){
-            if (gameMatrix[kremlin->posI][kremlin->posJ] == (int*) nothing){
+            if (gameMatrix[kremlin->posI][kremlin->posJ] == (int*) nothing && (gameMatrix[kremlin->posI + 1][kremlin->posJ] == (int*) tree || gameMatrix[kremlin->posI + 1][kremlin->posJ] == (int*) tile)){
                 switch (kremlin->type){
                     case 21:
                         gameMatrix[kremlin->posI][kremlin->posJ] = (int*) redKremlinRight1;
@@ -136,6 +140,29 @@ void updateKremlins(int* gameMatrix[24][16]){
                         break;
                 }
                 kremlin->placed = 1;
+                kremlinNode = kremlinNode->next;
+            }else if (gameMatrix[kremlin->posI][kremlin->posJ] == (int*) vine){
+                switch (kremlin->type){
+                    case 21:
+                        gameMatrix[kremlin->posI][kremlin->posJ] = (int*) redKremlinDown1;
+                        break;
+                    case 22:
+                        gameMatrix[kremlin->posI][kremlin->posJ] = (int*) blueKremlinDown1;
+                        break;
+                }
+                kremlin->placed = 1;
+                kremlinNode = kremlinNode->next;
+            }else if (gameMatrix[kremlin->posI + 1][kremlin->posJ] == (int*) nothing){
+                switch (kremlin->type){
+                    case 21:
+                        gameMatrix[kremlin->posI][kremlin->posJ] = (int*) redKremlinRight1;
+                        break;
+                    case 22:
+                        gameMatrix[kremlin->posI][kremlin->posJ] = (int*) blueKremlinRight1;
+                        break;
+                }
+                kremlin->placed = 1;
+                kremlin->falling = 1;
                 kremlinNode = kremlinNode->next;
             }else{
                 kremlin->onScreen = 0;
@@ -158,6 +185,7 @@ void searchVineForKremlin(struct Kremlin* kremlin, int* gameMatrix[24][16]){
     kremlin->previousJ = posJ;
     int currentSprite = 0;
     if (posI < rows - 2 && gameMatrix[posI + 2][posJ] == (int *) vine){
+        kremlin->velocity = 1;
         kremlin->posI += 2;
         kremlin->inVine = 1;
         gameMatrix[posI][posJ] = (int *) nothing;
@@ -166,7 +194,7 @@ void searchVineForKremlin(struct Kremlin* kremlin, int* gameMatrix[24][16]){
         }else{
             gameMatrix[kremlin->posI][posJ] = (int *) blueKremlinDown1;
         }
-    }else if (posJ < (columns - kremlin->velocity) && (gameMatrix[posI + kremlin->velocity][posJ + kremlin->velocity] == (int *) tree || gameMatrix[posI + kremlin->velocity][posJ + kremlin->velocity] == (int *) tile)){
+    }else if (posJ < (columns - abs(kremlin->velocity)) && (gameMatrix[posI + abs(kremlin->velocity)][posJ + kremlin->velocity] == (int *) tree || gameMatrix[posI + abs(kremlin->velocity)][posJ + kremlin->velocity] == (int *) tile)){
         kremlin->posJ += kremlin->velocity;
         currentSprite = (int) gameMatrix[posI][posJ];
         gameMatrix[posI][posJ] = (int *) nothing;
@@ -178,6 +206,12 @@ void searchVineForKremlin(struct Kremlin* kremlin, int* gameMatrix[24][16]){
                 case 2142:
                     gameMatrix[posI][kremlin->posJ] = (int *) redKremlinRight1;
                     break;
+                case 2131:
+                    gameMatrix[posI][kremlin->posJ] = (int *) redKremlinLeft2;
+                    break;
+                case 2132:
+                    gameMatrix[posI][kremlin->posJ] = (int*) redKremlinLeft1;
+                    break;
             }
         }else{
             switch (currentSprite){
@@ -187,22 +221,32 @@ void searchVineForKremlin(struct Kremlin* kremlin, int* gameMatrix[24][16]){
                 case 2242:
                     gameMatrix[posI][kremlin->posJ] = (int *) blueKremlinRight1;
                     break;
+                case 2231:
+                    gameMatrix[posI][kremlin->posJ] = (int *) blueKremlinLeft2;
+                    break;
+                case 2232:
+                    gameMatrix[posI][kremlin->posJ] = (int*) blueKremlinLeft1;
+                    break;
             }
         }
-    }
-
-    else{
-        kremlin->posJ -= kremlin->velocity;
+    }else{
+        kremlin->velocity *= -1;
+        kremlin->posJ += kremlin->velocity;
         currentSprite = (int) gameMatrix[posI][posJ];
         gameMatrix[posI][posJ] = (int *) nothing;
         if (kremlin->type == 21){
             switch (currentSprite){
                 case 2131:
-                    gameMatrix[posI][kremlin->posJ] = (int *) redKremlinLeft2;
+                    gameMatrix[posI][kremlin->posJ] = (int *) redKremlinRight2;
                     break;
                 case 2132:
-                    gameMatrix[posI][kremlin->posJ] = (int *) redKremlinLeft1;
+                    gameMatrix[posI][kremlin->posJ] = (int *) redKremlinRight1;
                     break;
+                case 2141:
+                    gameMatrix[posI][kremlin->posJ] = (int *) redKremlinLeft2;
+                    break;
+                case 2142:
+                    gameMatrix[posI][kremlin->posJ] = (int*) redKremlinLeft1;
             }
         }else{
             switch (currentSprite){
@@ -212,11 +256,15 @@ void searchVineForKremlin(struct Kremlin* kremlin, int* gameMatrix[24][16]){
                 case 2232:
                     gameMatrix[posI][kremlin->posJ] = (int *) blueKremlinLeft1;
                     break;
+                case 2241:
+                    gameMatrix[posI][kremlin->posJ] = (int *) blueKremlinLeft2;
+                    break;
+                case 2242:
+                    gameMatrix[posI][kremlin->posJ] = (int*) blueKremlinLeft1;
             }
         }
     }
 }
-
 
 void moveKremlinInVine(struct Kremlin* kremlin, int* gameMatrix[24][16]){
     int posI = kremlin->posI;
@@ -236,24 +284,6 @@ void moveKremlinInVine(struct Kremlin* kremlin, int* gameMatrix[24][16]){
                 case 2122:
                     gameMatrix[kremlin->posI][posJ] = (int*) redKremlinDown1;
                     break;
-            }
-        }else{
-            switch (currentSprite){
-                case 2221:
-                    gameMatrix[kremlin->posI][posJ] = (int*) blueKremlinDown2;
-                    break;
-                case 2222:
-                    gameMatrix[kremlin->posI][posJ] = (int*) blueKremlinDown1;
-                    break;
-            }
-        }
-    }else if (kremlin->type == 21){
-        kremlin->velocity *= -1;
-        kremlin->posI += kremlin->velocity;
-        currentSprite = (int) gameMatrix[posI][posJ];
-        gameMatrix[posI][posJ] = (int*) vine;
-        if (kremlin->type == 21){
-            switch (currentSprite){
                 case 2111:
                     gameMatrix[kremlin->posI][posJ] = (int*) redKremlinUp2;
                     break;
@@ -263,6 +293,12 @@ void moveKremlinInVine(struct Kremlin* kremlin, int* gameMatrix[24][16]){
             }
         }else{
             switch (currentSprite){
+                case 2221:
+                    gameMatrix[kremlin->posI][posJ] = (int*) blueKremlinDown2;
+                    break;
+                case 2222:
+                    gameMatrix[kremlin->posI][posJ] = (int*) blueKremlinDown1;
+                    break;
                 case 2211:
                     gameMatrix[kremlin->posI][posJ] = (int*) blueKremlinUp2;
                     break;
@@ -271,11 +307,84 @@ void moveKremlinInVine(struct Kremlin* kremlin, int* gameMatrix[24][16]){
                     break;
             }
         }
-        gameMatrix[kremlin->posI][posJ] = (int*) kremlin->type;
-    }else{
+    }else if (gameMatrix[kremlin->posI + kremlin->velocity][posJ] == (int*) dkjrVine1 || gameMatrix[kremlin->posI + kremlin->velocity][posJ] == (int*) dkjrVine2){
         kremlin->inVine = 0;
         kremlin->onScreen = 0;
+        dkJr.lives--;
+        dkJr.dead = 1;
+        gameMatrix[kremlin->posI][posJ] = (int*) vine;
+        gameMatrix[kremlin->posI + kremlin->velocity][posJ] = (int*) vine;
+    }else if (kremlin->type == 21 || gameMatrix[kremlin->posI + kremlin->velocity][posJ] == (int*) fruit1Vine || gameMatrix[kremlin->posI + kremlin->velocity][posJ] == (int*) fruit2Vine || gameMatrix[kremlin->posI + kremlin->velocity][posJ] == (int*) fruit3Vine || gameMatrix[kremlin->posI + kremlin->velocity][posJ] == (int*) tile || gameMatrix[kremlin->posI + kremlin->velocity][posJ] == (int*) tree){
+        kremlin->velocity *= -1;
+        kremlin->posI += kremlin->velocity;
+        currentSprite = (int) gameMatrix[posI][posJ];
         gameMatrix[posI][posJ] = (int*) vine;
+        switch (currentSprite){
+            case 2121:
+                gameMatrix[kremlin->posI][posJ] = (int*) redKremlinUp2;
+                break;
+            case 2122:
+                gameMatrix[kremlin->posI][posJ] = (int*) redKremlinUp1;
+                break;
+            case 2111:
+                gameMatrix[kremlin->posI][posJ] = (int*) redKremlinDown2;
+                break;
+            case 2112:
+                gameMatrix[kremlin->posI][posJ] = (int*) redKremlinDown1;
+                break;
+            case 2221:
+                gameMatrix[kremlin->posI][posJ] = (int*) blueKremlinUp2;
+                break;
+            case 2222:
+                gameMatrix[kremlin->posI][posJ] = (int*) blueKremlinUp1;
+                break;
+            case 2211:
+                gameMatrix[kremlin->posI][posJ] = (int*) blueKremlinDown2;
+                break;
+            case 2212:
+                gameMatrix[kremlin->posI][posJ] = (int*) blueKremlinDown1;
+                break;
+        }
+    }else{
+        kremlin->inVine = 0;
+        gameMatrix[posI][posJ] = (int*) vine;
+        kremlin->falling = 1;
+    }
+}
+
+void makeKremlinFall(struct Kremlin* kremlin, int* gameMatrix[24][16]){
+    int posI = kremlin->posI;
+    int posJ = kremlin->posJ;
+    kremlin->previousI = posI;
+    kremlin->previousJ = posJ;
+    if (gameMatrix[kremlin->posI + 1][kremlin->posJ] == (int*) nothing){
+        kremlin->falling++;
+        gameMatrix[posI][posJ] = (int*) nothing;
+        kremlin->posI++;
+        switch (kremlin->type){
+            case 21:
+                gameMatrix[kremlin->posI][posJ] = (int*) redKremlinRight1;
+                break;
+            case 22:
+                gameMatrix[kremlin->posI][posJ] = (int*) blueKremlinRight1;
+                break;
+        }
+    }else{
+        if (kremlin->falling >= 6){
+            kremlin->onScreen = 0;
+            gameMatrix[posI][posJ] = (int*) nothing;
+        }else{
+            kremlin->falling = 0;
+            gameMatrix[posI][posJ] = (int*) nothing;
+            switch (kremlin->type){
+                case 21:
+                    gameMatrix[kremlin->posI][posJ] = (int*) redKremlinRight1;
+                    break;
+                case 22:
+                    gameMatrix[kremlin->posI][posJ] = (int*) blueKremlinRight1;
+                    break;
+            }
+        }
     }
 }
 
