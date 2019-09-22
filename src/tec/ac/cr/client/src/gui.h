@@ -29,6 +29,7 @@ void dibujarLiana();
 void dibujarDKJr();
 void dibujarKremlin();
 void dibujarFruta();
+void dibujarMarioyDK();
 int calculateXposition(int i);
 int calculateYposition(int j);
 

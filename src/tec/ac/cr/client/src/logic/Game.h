@@ -50,6 +50,12 @@ static int dkjrVine2 = 432;
 static int dkjrJumpRight = 441;
 static int dkjrJumpLeft = 442;
 
+static int mario = 5;
+
+static int dk = 6;
+
+static int key = 7;
+
 static int rows = 24;
 static int columns = 16;
 static struct DKJr dkJr = {1, 22, 0, 3, 0, 0, 0, 0, 0, 0, 0};

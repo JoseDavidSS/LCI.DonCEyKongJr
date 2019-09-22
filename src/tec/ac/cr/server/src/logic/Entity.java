@@ -4,13 +4,11 @@ public abstract class Entity {
 
     protected Entity(Integer posI, Integer posJ){
         this.velocity = 1;
-        this.onScreen = true;
         this.posI = posI;
         this.posJ = posJ;
     }
 
     Integer velocity;
-    Boolean onScreen;
     Integer posI;
     Integer posJ;
 
@@ -20,14 +18,6 @@ public abstract class Entity {
 
     public void setVelocity(Integer velocity) {
         this.velocity = velocity;
-    }
-
-    public Boolean getOnScreen() {
-        return onScreen;
-    }
-
-    public void setOnScreen(Boolean onScreen) {
-        this.onScreen = onScreen;
     }
 
     public Integer getPosI() {
@@ -44,10 +34,6 @@ public abstract class Entity {
 
     public void setPosJ(Integer posJ) {
         this.posJ = posJ;
-    }
-
-    void checkCurrentPos(){
-
     }
 
 }

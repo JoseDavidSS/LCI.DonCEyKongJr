@@ -18,6 +18,7 @@ void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display) {
     dibujarDKJr();
     dibujarPiso();
     dibujarLiana();
+    dibujarMarioyDK();
 
     al_hold_bitmap_drawing(false);
     al_flip_display();
@@ -373,6 +374,31 @@ void dibujarFruta(){
         }
         fruitNode = fruitNode->next;
     }
+}
+
+void dibujarMarioyDK(){
+    bitmap = al_load_bitmap("../src/imagenes/mario.png");
+    al_draw_bitmap(bitmap, calculateXposition(3), calculateYposition(3), 0);
+    bitmap = al_load_bitmap("../src/imagenes/key.png");
+    al_draw_bitmap(bitmap, calculateXposition(7), calculateYposition(0), 0);
+    bitmap = al_load_bitmap("../src/imagenes/dk1.png");
+    al_draw_bitmap(bitmap, calculateXposition(0), calculateYposition(1), 0);
+    bitmap = al_load_bitmap("../src/imagenes/dk2.png");
+    al_draw_bitmap(bitmap, calculateXposition(1), calculateYposition(1), 0);
+    bitmap = al_load_bitmap("../src/imagenes/dk3.png");
+    al_draw_bitmap(bitmap, calculateXposition(2), calculateYposition(1), 0);
+    bitmap = al_load_bitmap("../src/imagenes/dk4.png");
+    al_draw_bitmap(bitmap, calculateXposition(0), calculateYposition(2), 0);
+    bitmap = al_load_bitmap("../src/imagenes/dk5.png");
+    al_draw_bitmap(bitmap, calculateXposition(1), calculateYposition(2), 0);
+    bitmap = al_load_bitmap("../src/imagenes/dk6.png");
+    al_draw_bitmap(bitmap, calculateXposition(2), calculateYposition(2), 0);
+    bitmap = al_load_bitmap("../src/imagenes/dk7.png");
+    al_draw_bitmap(bitmap, calculateXposition(0), calculateYposition(3), 0);
+    bitmap = al_load_bitmap("../src/imagenes/dk8.png");
+    al_draw_bitmap(bitmap, calculateXposition(1), calculateYposition(3), 0);
+    bitmap = al_load_bitmap("../src/imagenes/dk9.png");
+    al_draw_bitmap(bitmap, calculateXposition(2), calculateYposition(3), 0);
 }
 
 int calculateXposition(int j){
