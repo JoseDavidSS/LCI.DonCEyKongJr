@@ -106,8 +106,10 @@ int main() {
 
    init_game();
    init_matrix();
-   struct Kremlin kremlin = {0, 3, 5, -1, -1, 1, 1, 0, 21, 0};
-   insertKremlin(&kremlin);
+   struct Kremlin kremlin1 = {0, 1, 7, -1, -1, 1, 1, 0, 22, 0, 0};
+   insertKremlin(&kremlin1);
+   struct Fruit fruit1 = {1, 10, 6, 1, 100, 31, 0};
+   insertFruit(&fruit1);
    run();
 
    return 0;

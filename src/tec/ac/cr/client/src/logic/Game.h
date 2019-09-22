@@ -60,6 +60,7 @@ void updateFruits(int* gameMatrix[24][16]);
 void updateKremlins(int* gameMatrix[24][16]);
 void searchVineForKremlin(struct Kremlin* kremlin, int* gameMatrix[24][16]);
 void moveKremlinInVine(struct Kremlin* kremlin, int* gameMatrix[24][16]);
+void makeKremlinFall(struct Kremlin* kremlin, int* gameMatrix[24][16]);
 void moveDKJrHorizontal(int direction, int* gameMatrix[24][16]);
 void moveDKJrVertical(int direction, int* gameMatrix[24][16]);
 void moveDKJrUpAir(int* gameMatrix[24][16]);

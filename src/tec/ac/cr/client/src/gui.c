@@ -277,10 +277,14 @@ void dibujarKremlin(){
                 case 2211:
                     bitmap = al_load_bitmap("../src/imagenes/bluecroc_onvine_up.png");
                     al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
+                    bitmap = al_load_bitmap("../src/imagenes/empty.png");
+                    al_draw_bitmap(bitmap, calculateXposition(previousJ), calculateYposition(previousI), 0);
                     break;
                 case 2212:
                     bitmap = al_load_bitmap("../src/imagenes/bluecroc_onvine_up_open.png");
                     al_draw_bitmap(bitmap, calculateXposition(posJ), calculateYposition(posI), 0);
+                    bitmap = al_load_bitmap("../src/imagenes/empty.png");
+                    al_draw_bitmap(bitmap, calculateXposition(previousJ), calculateYposition(previousI), 0);
                     break;
                 case 2221:
                     bitmap = al_load_bitmap("../src/imagenes/bluecroc_onvine_down.png");
