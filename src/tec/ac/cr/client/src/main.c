@@ -20,9 +20,15 @@ GtkWidget *image;
 GtkWidget *button;
 GtkWidget *button2;
 GtkWidget *entry;
+GtkWidget *label;
+
 static char* serverIp = "127.0.0.1";
 static int fpoints = 0;
 
+/**
+ * Metodo para conectarse al server como jugador
+ * @param widget
+ */
 static void conectarseJugador (GtkWidget *widget){
     g_print("%s\n", gtk_entry_get_text(GTK_ENTRY(entry)));
     const gchar *entry_text;
@@ -40,14 +46,26 @@ static void conectarseJugador (GtkWidget *widget){
         printf("%d",a);
         if (a == 4287872){
             fpoints = mainAllegro(8082);
+            printf("los puntos son %d",fpoints);
+           // char* mensajePuntos=(char *)fpoints;
+            //gtk_label_set_text(GTK_LABEL (label),  mensajePuntos);
+
         }else{
             fpoints = mainAllegro(8083);
+            printf("los puntos son %d",fpoints);
+
+           // char* mensajePuntos=(char *)fpoints;
+            //gtk_label_set_text(GTK_LABEL (label),  mensajePuntos);
         }
     } else{
         printf("Me rechazaron");
     }
 }
 
+/**
+ * Metodo para conectarse al servidor como observador
+ * @param widget
+ */
 static void conectarseObservador (GtkWidget *widget){
     g_print("%s\n", gtk_entry_get_text(GTK_ENTRY(entry)));
     const gchar *entry_text;
@@ -84,6 +102,8 @@ int main( int argc, char *argv[]){
     gtk_container_add(GTK_CONTAINER (window), layout);
     gtk_widget_show(layout);
     //Aqui lo que hacemos es crear los botones y el entry.Ademas de eso creamos  la imagen con el fondo  establecido
+    label = gtk_label_new("");
+
     button = gtk_button_new_with_label ("Conectarse Como Jugador");
     button2 = gtk_button_new_with_label ("Conectarse Como Observador");
     entry= gtk_entry_new ();
@@ -93,11 +113,16 @@ int main( int argc, char *argv[]){
     g_signal_connect (button2, "clicked", G_CALLBACK(conectarseObservador), NULL);
 
     //Aqui lo que hacemos es  pegar todas las cosas en la ventana con sus respectivas cordenadas
+
     gtk_layout_put(GTK_LAYOUT(layout), image, 0, 0);
+
     gtk_entry_set_max_length (GTK_ENTRY (entry),0);
     gtk_layout_put(GTK_LAYOUT(layout), button2, 130, 445);
     gtk_layout_put(GTK_LAYOUT(layout), button, 140, 390);
+
     gtk_layout_put(GTK_LAYOUT(layout), entry, 475, 290);
+    gtk_layout_put(GTK_LAYOUT(layout), label, 475, 320);
+
     gtk_widget_set_size_request(button, 80, 35);
     gtk_widget_set_size_request(button2, 80, 35);
     g_signal_connect_swapped(G_OBJECT(window), "destroy",G_CALLBACK(gtk_main_quit), NULL);

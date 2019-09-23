@@ -4,6 +4,11 @@
 
 #include "Serializer.h"
 
+/**
+ * Serializa matriz
+ * @param matrix
+ * @return
+ */
 char* serializeMatrix(int matrix[24][16]){
     char *json_File = "";
     cJSON *_row = cJSON_CreateArray();
@@ -36,7 +41,11 @@ char* serializeMatrix(int matrix[24][16]){
     return json_File;
 }
 
-
+/**
+ * Verifica si es un kremlin
+ * @param json
+ * @return
+ */
 int isKremlin(const char* json){
     cJSON *kremlinJson = cJSON_Parse(json);
     int a = 0;
@@ -61,6 +70,11 @@ int isKremlin(const char* json){
     return a;
 }
 
+/**
+ * Verifica si es una fruta
+ * @param json
+ * @return
+ */
 int isFruit(const char* json){
     cJSON *fruitJson = cJSON_Parse(json);
     int a = 0;
@@ -84,6 +98,11 @@ int isFruit(const char* json){
     return a;
 }
 
+/**
+ * Deseariliza un kremlin
+ * @param json
+ * @return
+ */
 struct Kremlin* deserializeKremlin(const char *json){
     struct Kremlin* kremlin;
     cJSON* id;
@@ -170,6 +189,11 @@ struct Kremlin* deserializeKremlin(const char *json){
     return kremlin;
 }
 
+/**
+ * Deserializa una fruta
+ * @param json
+ * @return
+ */
 struct Fruit* deserializeFruit(const char *json){
     struct Fruit* fruit;
     // cJSON data tokens

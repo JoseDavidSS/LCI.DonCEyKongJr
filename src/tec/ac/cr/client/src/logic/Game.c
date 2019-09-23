@@ -7,6 +7,10 @@
 #include "lists/FruitNode.h"
 #include "lists/KremlinNode.h"
 
+/**
+ * Metodo para iniciar matriz
+ * @param gameMatrix
+ */
 void initializeGameMatrix(int* gameMatrix[24][16]){
     for (int i = 0; i < rows; i++){
         for (int j = 0; j < columns; j++){
@@ -31,6 +35,12 @@ void initializeGameMatrix(int* gameMatrix[24][16]){
     }
 }
 
+/**
+ * Metodo para actualizar matriz
+ * @param direction
+ * @param gameMatrix
+ * @return
+ */
 int updateGameMatrix(int direction, int* gameMatrix[24][16]){
     if (dkJr.lives < 0){
         return dkJr.currentPoints;
@@ -86,6 +96,10 @@ int updateGameMatrix(int direction, int* gameMatrix[24][16]){
     return 0;
 }
 
+/**
+ * Metodo para actualizar frutas
+ * @param gameMatrix
+ */
 void updateFruits(int* gameMatrix[24][16]){
     struct FruitNode* fruitNode = returnFruitHead();
     struct Fruit* fruit;
@@ -136,6 +150,10 @@ void updateFruits(int* gameMatrix[24][16]){
     }
 }
 
+/**
+ * Metodo para actualizar kremlins
+ * @param gameMatrix
+ */
 void updateKremlins(int* gameMatrix[24][16]){
     struct KremlinNode* kremlinNode = returnKremlinHead();
     struct Kremlin* kremlin;
@@ -196,6 +214,11 @@ void updateKremlins(int* gameMatrix[24][16]){
     }
 }
 
+/**
+ * Metodo para mover un kremlin en el suelo
+ * @param kremlin
+ * @param gameMatrix
+ */
 void searchVineForKremlin(struct Kremlin* kremlin, int* gameMatrix[24][16]){
     int posI = kremlin->posI;
     int posJ = kremlin->posJ;
@@ -292,6 +315,11 @@ void searchVineForKremlin(struct Kremlin* kremlin, int* gameMatrix[24][16]){
     }
 }
 
+/**
+ * Metodo para mover un kremlin en una liana
+ * @param kremlin
+ * @param gameMatrix
+ */
 void moveKremlinInVine(struct Kremlin* kremlin, int* gameMatrix[24][16]){
     int posI = kremlin->posI;
     int posJ = kremlin->posJ;
@@ -378,6 +406,11 @@ void moveKremlinInVine(struct Kremlin* kremlin, int* gameMatrix[24][16]){
     }
 }
 
+/**
+ * Metodo para hacer caer un kremlin
+ * @param kremlin
+ * @param gameMatrix
+ */
 void makeKremlinFall(struct Kremlin* kremlin, int* gameMatrix[24][16]){
     int posI = kremlin->posI;
     int posJ = kremlin->posJ;
@@ -414,6 +447,11 @@ void makeKremlinFall(struct Kremlin* kremlin, int* gameMatrix[24][16]){
     }
 }
 
+/**
+ * Metodo para mover dk en el piso
+ * @param direction
+ * @param gameMatrix
+ */
 void moveDKJrHorizontal(int direction, int* gameMatrix[24][16]){
     int posI = dkJr.posI;
     int posJ = dkJr.posJ;
@@ -692,6 +730,11 @@ void moveDKJrHorizontal(int direction, int* gameMatrix[24][16]){
     }
 }
 
+/**
+ * Metodo para mover dk verticalmente
+ * @param direction
+ * @param gameMatrix
+ */
 void moveDKJrVertical(int direction, int* gameMatrix[24][16]){
     int posI = dkJr.posI;
     int posJ = dkJr.posJ;
@@ -891,6 +934,10 @@ void moveDKJrVertical(int direction, int* gameMatrix[24][16]){
     }
 }
 
+/**
+ * Metodo para mover a dk en el aire
+ * @param gameMatrix
+ */
 void moveDKJrUpAir(int* gameMatrix[24][16]){
     int posI = dkJr.posI;
     int posJ = dkJr.posJ;
@@ -927,6 +974,10 @@ void moveDKJrUpAir(int* gameMatrix[24][16]){
     }
 }
 
+/**
+ * Metodo para mover a dk en el aire
+ * @param gameMatrix
+ */
 void moveDKJrLeftAir(int* gameMatrix[24][16]){
     int posI = dkJr.posI;
     int posJ = dkJr.posJ;
@@ -977,6 +1028,10 @@ void moveDKJrLeftAir(int* gameMatrix[24][16]){
     }
 }
 
+/**
+ * Metodo para mover a dk en el aire
+ * @param gameMatrix
+ */
 void moveDKJrRightAir(int* gameMatrix[24][16]){
     int posI = dkJr.posI;
     int posJ = dkJr.posJ;
@@ -1027,6 +1082,10 @@ void moveDKJrRightAir(int* gameMatrix[24][16]){
     }
 }
 
+/**
+ * Metodo que hace caer a dk
+ * @param gameMatrix
+ */
 void makeDKJrFall(int* gameMatrix[24][16]){
     int posI = dkJr.posI;
     int posJ = dkJr.posJ;
@@ -1065,6 +1124,10 @@ void makeDKJrFall(int* gameMatrix[24][16]){
     }
 }
 
+/**
+ * Metodo que reinicia la posicion de dk
+ * @param gameMatrix
+ */
 void resetDKJrPosition(int* gameMatrix[24][16]){
     int posI = dkJr.posI;
     int posJ = dkJr.posJ;

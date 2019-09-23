@@ -5,6 +5,10 @@
 #include "KremlinNode.h"
 #include <stdlib.h>
 
+/**
+ * Metodo para insertar un kremlin
+ * @param kremlin
+ */
 void insertKremlin(struct Kremlin* kremlin){
     struct KremlinNode* tmp = (struct KremlinNode*) malloc(sizeof(struct KremlinNode));
     tmp->kremlin = kremlin;
@@ -12,6 +16,10 @@ void insertKremlin(struct Kremlin* kremlin){
     kremlinHead = tmp;
 }
 
+/**
+ * Metodo para eliminar un kremlin por id
+ * @param id
+ */
 void deleteKremlinByID(int id){
     struct KremlinNode* current = kremlinHead;
     struct KremlinNode* previous = NULL;
@@ -33,6 +41,11 @@ void deleteKremlinByID(int id){
     }
 }
 
+/**
+ * Metodo para eliminar un kremlin por posicion
+ * @param i
+ * @param j
+ */
 void deleteKremlinByPos(int i, int j){
     struct KremlinNode* current = kremlinHead;
     struct KremlinNode* previous = NULL;
@@ -54,6 +67,12 @@ void deleteKremlinByPos(int i, int j){
     }
 }
 
+/**
+ * Metodo para buscar un kremlin por posicion
+ * @param i
+ * @param j
+ * @return el kremlin
+ */
 struct Kremlin* findKremlinByPos(int i, int j){
     struct KremlinNode* tmp = kremlinHead;
     if (kremlinHead == NULL) {
@@ -69,6 +88,10 @@ struct Kremlin* findKremlinByPos(int i, int j){
     return tmp->kremlin;
 }
 
+/**
+ * Metodo para obtener la cabeza de los kremlins
+ * @return cabeza de los kremlins
+ */
 struct KremlinNode* returnKremlinHead(){
     return kremlinHead;
 }

@@ -5,6 +5,12 @@
 
 char SendBuff[512],RecvBuff[512];
 
+/**
+ * Eschucha en un puerto
+ * @param puerto
+ * @param ip
+ * @return
+ */
 char* escuchar(int puerto,char* ip){
     WSADATA wsaData;
     SOCKET conn_socket,comm_socket;
@@ -92,6 +98,13 @@ char* escuchar(int puerto,char* ip){
     return RecvBuff;
 }
 
+/**
+ * Envia en un puerto
+ * @param ip
+ * @param puerto
+ * @param mensaje
+ * @return
+ */
 int enviar(char *ip, int puerto, char* mensaje){
     WSADATA wsaData;
     SOCKET conn_socket;
