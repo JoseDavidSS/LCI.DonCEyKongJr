@@ -22,6 +22,7 @@ void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display) {
     }
 
     al_hold_bitmap_drawing(true);
+    al_draw_bitmap(bitmap, 0, 0, 0);
     dibujarKremlin();
     dibujarFruta();
     dibujarDKJr();
