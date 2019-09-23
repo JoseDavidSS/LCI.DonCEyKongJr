@@ -16,6 +16,7 @@ static ALLEGRO_TIMER* timer = NULL;
 static ALLEGRO_BITMAP  *background = NULL;
 static bool redraw;
 static bool done;
+static int points = 0;
 
 int init_game();
 int run();

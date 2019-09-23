@@ -17,6 +17,7 @@ struct FruitNode{
 
 void insertFruit(struct Fruit* fruit);
 void deleteFruitByID(int id);
+void deleteFruitByPos(int i, int j);
 struct Fruit* findFruitByPos(int i, int j);
 struct FruitNode* returnFruitHead();
 

@@ -2,15 +2,15 @@ package logic;
 
 public abstract class Entity {
 
-    protected Entity(Integer posI, Integer posJ){
+    public Entity(Integer posI, Integer posJ){
         this.velocity = 1;
         this.posI = posI;
         this.posJ = posJ;
     }
 
-    Integer velocity;
-    Integer posI;
-    Integer posJ;
+    public Integer velocity;
+    public Integer posI;
+    public Integer posJ;
 
     public Integer getVelocity() {
         return velocity;

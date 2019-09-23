@@ -31,8 +31,10 @@ void initializeGameMatrix(int* gameMatrix[24][16]){
     }
 }
 
-void updateGameMatrix(int direction, int* gameMatrix[24][16]){
-    if ((dkJr.posI == 0 && dkJr.posJ == 7) || (dkJr.posI == 1 && dkJr.posJ == 4) || (dkJr.posI == 1 && dkJr.posJ == 5)){
+int updateGameMatrix(int direction, int* gameMatrix[24][16]){
+    if (dkJr.lives < 0){
+        return dkJr.currentPoints;
+    }if ((dkJr.posI == 0 && dkJr.posJ == 7) || (dkJr.posI == 1 && dkJr.posJ == 4) || (dkJr.posI == 1 && dkJr.posJ == 5)){
         dkJr.lives++;
         dkJr.dead = 0;
         dkJr.dead = 0;
@@ -81,6 +83,7 @@ void updateGameMatrix(int direction, int* gameMatrix[24][16]){
     if (returnKremlinHead() != NULL){
         updateKremlins(gameMatrix);
     }
+    return 0;
 }
 
 void updateFruits(int* gameMatrix[24][16]){
@@ -91,7 +94,7 @@ void updateFruits(int* gameMatrix[24][16]){
     while (fruitNode != NULL){
         fruit = fruitNode->fruit;
         if (fruit->onScreen == 0){
-            deleteFruitByID(fruit->id);
+            deleteFruitByPos(fruit->posI, fruit->posJ);
             fruitNode = fruitNode->next;
         }else{
             posI = fruit->posI;
@@ -139,7 +142,7 @@ void updateKremlins(int* gameMatrix[24][16]){
     while (kremlinNode != NULL){
         kremlin = kremlinNode->kremlin;
         if (kremlin->onScreen == 0){
-            deleteKremlinByID(kremlin->id);
+            deleteKremlinByPos(kremlin->posI, kremlin->posJ);
             kremlinNode = kremlinNode->next;
         }else if (kremlin->falling >= 1){
             makeKremlinFall(kremlin, gameMatrix);
@@ -209,6 +212,14 @@ void searchVineForKremlin(struct Kremlin* kremlin, int* gameMatrix[24][16]){
         }else{
             gameMatrix[kremlin->posI][posJ] = (int *) blueKremlinDown1;
         }
+    }else if (posJ < (columns - abs(kremlin->velocity)) && (gameMatrix[posI][posJ + kremlin->velocity] == (int*) redKremlinRight1 || gameMatrix[posI][posJ + kremlin->velocity] == (int*) redKremlinRight2 || gameMatrix[posI][posJ + kremlin->velocity] == (int*) redKremlinLeft1 || gameMatrix[posI][posJ + kremlin->velocity] == (int*) redKremlinLeft2 || gameMatrix[posI][posJ + kremlin->velocity] == (int*) blueKremlinRight1 || gameMatrix[posI][posJ + kremlin->velocity] == (int*) blueKremlinRight2 || gameMatrix[posI][posJ + kremlin->velocity] == (int*) blueKremlinLeft1 || gameMatrix[posI][posJ + kremlin->velocity] == (int*) blueKremlinLeft2 || gameMatrix[posI][posJ + kremlin->velocity] == (int*) fruit1Blanck || gameMatrix[posI][posJ + kremlin->velocity] == (int*) fruit2Blanck || gameMatrix[posI][posJ + kremlin->velocity] == (int*) fruit3Blanck)){
+        kremlin->onScreen = 0;
+        gameMatrix[posI][posJ] = (int*) nothing;
+    }else if (posJ < (columns - abs(kremlin->velocity)) && (gameMatrix[posI][posJ + kremlin->velocity] == (int*) dkjrRight1 || gameMatrix[posI][posJ + kremlin->velocity] == (int*) dkjrRight2 || gameMatrix[posI][posJ + kremlin->velocity] == (int*) dkjrRight3 || gameMatrix[posI][posJ + kremlin->velocity] == (int*) dkjrLeft1 || gameMatrix[posI][posJ + kremlin->velocity] == (int*) dkjrLeft2 || gameMatrix[posI][posJ + kremlin->velocity] == (int*) dkjrLeft3)){
+        kremlin->onScreen = 0;
+        gameMatrix[posI][posJ] = (int*) nothing;
+        dkJr.lives--;
+        dkJr.dead = 1;
     }else if (posJ < (columns - abs(kremlin->velocity)) && (gameMatrix[posI + abs(kremlin->velocity)][posJ + kremlin->velocity] == (int *) tree || gameMatrix[posI + abs(kremlin->velocity)][posJ + kremlin->velocity] == (int *) tile)){
         kremlin->posJ += kremlin->velocity;
         currentSprite = (int) gameMatrix[posI][posJ];

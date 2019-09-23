@@ -11,6 +11,7 @@ public class Kremlin extends Entity {
         this.previousJ = -1;
         this.placed = 0;
         this.falling = 0;
+        this.onScreen = 1;
     }
 
     private Integer inVine;
@@ -20,6 +21,7 @@ public class Kremlin extends Entity {
     private Integer previousJ;
     private Integer placed;
     private Integer falling;
+    private Integer onScreen;
 
     public Integer getInVine() {
         return inVine;
@@ -75,5 +77,13 @@ public class Kremlin extends Entity {
 
     public void setFalling(Integer falling) {
         this.falling = falling;
+    }
+
+    public Integer getOnScreen() {
+        return onScreen;
+    }
+
+    public void setOnScreen(Integer onScreen) {
+        this.onScreen = onScreen;
     }
 }

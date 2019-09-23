@@ -82,7 +82,10 @@ int run(){
         }
         if (draw == 2){
             draw = 0;
-            dibujarMatriz(action, display);
+            points = dibujarMatriz(action, display);
+            if (points != 0){
+                done = true;
+            }
             action = -1;
             al_flip_display();
         }else{
@@ -92,22 +95,22 @@ int run(){
     al_destroy_display(display);
     al_destroy_timer(timer);
     al_destroy_event_queue(event_queue);
-    return 0;
+    return points;
 }
 
 int mainAllegro(int port) {
    setPort(port);
    init_game();
    init_matrix();
-   struct Kremlin kremlin1 = {0, 1, 7, -1, -1, 1, 1, 0, 22, 0, 0};
-   insertKremlin(&kremlin1);
-  /* struct Kremlin kremlin2 = {0, 1, 8, -1, -1, 1, 1, 0 , 21, 0, 0};
-   insertKremlin(&kremlin2);*/
-   struct Fruit fruit1 = {1, 10, 6, 1, 100, 31, 0, 1};
-   insertFruit(&fruit1);
-   run();
-
-   return 0;
+    struct Kremlin kremlin1 = {0, 1, 7, -1, -1, 1, 1, 0, 22, 0, 0};
+    insertKremlin(&kremlin1);
+    struct Kremlin kremlin2 = {1, 20, 8, -1, -1, 1, 1, 0 , 21, 0, 0};
+    insertKremlin(&kremlin2);
+    struct Kremlin kremlin3 = {2, 18, 5, -1, -1, 1, 1, 0 , 21, 0, 0};
+    insertKremlin(&kremlin3);
+    struct Fruit fruit1 = {1, 10, 6, 1, 100, 31, 0, 1};
+    insertFruit(&fruit1);
+   return run();
 }
 
 #pragma clang diagnostic pop

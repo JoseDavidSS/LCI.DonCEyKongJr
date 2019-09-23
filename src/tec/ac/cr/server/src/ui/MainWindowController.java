@@ -264,7 +264,7 @@ public class MainWindowController implements Initializable {
         if (posI.equals("") || posJ.equals("") || currentPlayer == 0){
             System.out.println("Llene todo");
         }else{
-            Fruit fruit = new Fruit(Integer.valueOf(posI), Integer.valueOf(posJ), 0, 31);
+            Fruit fruit = new Fruit(Integer.valueOf(posI), Integer.valueOf(posJ), 0, 0);
             game.addFruit(fruit, currentPlayer);
             deleteFruitIEntry.setText("");
             deleteFruitJEntry.setText("");

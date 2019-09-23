@@ -61,7 +61,7 @@ static int columns = 16;
 static struct DKJr dkJr = {1, 22, 0, 3, 0, 0, 0, 0, 0, 0, 0};
 
 void initializeGameMatrix(int* gameMatrix[24][16]);
-void updateGameMatrix(int direction, int* gameMatrix[24][16]);
+int updateGameMatrix(int direction, int* gameMatrix[24][16]);
 void updateFruits(int* gameMatrix[24][16]);
 void updateKremlins(int* gameMatrix[24][16]);
 void searchVineForKremlin(struct Kremlin* kremlin, int* gameMatrix[24][16]);
