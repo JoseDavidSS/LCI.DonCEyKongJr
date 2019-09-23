@@ -1,24 +1,20 @@
 package logic;
 
+import socket.Serializer;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
 
-    private Game(){
-        gameMatrix = new Integer[this.rows][this.columns];
-        baseMatrix = new Integer[this.rows][this.columns];
-    }
+    private Game(){}
 
     private static Game game = null;
-    public static volatile Kremlin p1Kremlin = null;
-    public static volatile Kremlin p2Kremlin = null;
-    public static volatile Fruit p1Fruit = null;
-    public static volatile Fruit p2Fruit = null;
-    private Integer[][] gameMatrix;
-    private Integer[][] baseMatrix;
-    private Integer rows = 24;
-    private Integer columns = 16;
+    public static volatile String p1Kremlin = null;
+    public static volatile String p2Kremlin = null;
+    public static volatile String p1Fruit = null;
+    public static volatile String p2Fruit = null;
 
     public static Game getInstance(){
         if (game == null){
@@ -27,21 +23,21 @@ public class Game {
         return game;
     }
 
-    public void addEnemy(Kremlin kremlin, Integer player){
+    public void addEnemy(Kremlin kremlin, Integer player) throws IOException {
         System.out.println("Kremlin agregado");
         if (player == 1){
-            p1Kremlin = kremlin;
+            p1Kremlin = Serializer.serializeKremlin(kremlin);
         }else{
-            p2Kremlin = kremlin;
+            p2Kremlin = Serializer.serializeKremlin(kremlin);
         }
     }
 
-    public void addFruit(Fruit fruit, Integer player){
+    public void addFruit(Fruit fruit, Integer player) throws IOException {
         System.out.println("Fruta agregada");
         if (player == 1){
-            p1Fruit = fruit;
+            p1Fruit = Serializer.serializeFruit(fruit);
         }else{
-            p2Fruit = fruit;
+            p2Fruit = Serializer.serializeFruit(fruit);
         }
     }
 }

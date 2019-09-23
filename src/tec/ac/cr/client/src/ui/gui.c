@@ -3,19 +3,25 @@
 //
 
 #include "gui.h"
-#include "logic/Game.h"
-#include "logic/lists/KremlinNode.h"
-#include "logic/lists/FruitNode.h"
+#include "../logic/Game.h"
+#include "../logic/lists/KremlinNode.h"
+#include "../logic/lists/FruitNode.h"
+#include "../socket/Socket.h"
+#include "../socket/Serializer.h"
 
 void init_matrix(){
     initializeGameMatrix(gameMatrix);
 }
 
 void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display) {
+
+    if (firstTime == 0){
+        thread = al_create_thread(Func_Thread, "");
+        al_start_thread(thread);
+        firstTime = 1;
+    }
+
     al_hold_bitmap_drawing(true);
-    ALLEGRO_BITMAP * fondo;
-    fondo = al_load_bitmap("../src/imagenes/fondo.png");
-    al_draw_bitmap(fondo, 0, 0, 0);
     dibujarKremlin();
     dibujarFruta();
     dibujarDKJr();
@@ -27,6 +33,18 @@ void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display) {
     al_flip_display();
     al_set_target_bitmap(al_get_backbuffer(display));
     updateGameMatrix(direction, gameMatrix);
+
+    if (receivedJson != NULL){
+        if (isFruit(receivedJson) == 2){
+            struct Fruit* fruit = deserializeFruit(receivedJson);
+            insertFruit(fruit);
+            receivedJson = NULL;
+        }else{
+            struct Kremlin* kremlin = deserializeKremlin(receivedJson);
+            insertKremlin(kremlin);
+            receivedJson = NULL;
+        }
+    }
 }
 
 void dibujarPiso(){
@@ -412,4 +430,22 @@ int calculateXposition(int j){
 int calculateYposition(int i){
     int posY = i * 29;
     return posY;
+}
+
+static void* Func_Thread(ALLEGRO_THREAD *thr, void* arg){
+    int a = 1;
+    while (true){
+        while (a == 1){
+            if (enviar(serverIp, port, serializeMatrix(gameMatrix)) == 0){
+                a = 0;
+            }
+        }
+        receivedJson = escuchar(port, serverIp);
+        a = 1;
+
+    }
+}
+
+void setPort(int nport){
+    port = nport;
 }

@@ -17,11 +17,16 @@
 static int largo = LARGO_PANTALLA;
 static int ancho = ANCHO_PANTALLA;
 ALLEGRO_BITMAP* bitmap;
-static int* gameMatrix[24][16];
+static ALLEGRO_THREAD* thread = NULL;
+static int firstTime = 0;
+static volatile int* gameMatrix[24][16];
 static int previousIntI = -1;
 static int previousIntJ = -1;
+static volatile char* receivedJson = NULL;
+static volatile char* serverIp = "127.0.0.1";
+static volatile int port = 0;
+
 /// Inicia los componestes de la pantalla
-void init_screen();
 void init_matrix();
 void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display);
 void dibujarPiso();
@@ -32,6 +37,8 @@ void dibujarFruta();
 void dibujarMarioyDK();
 int calculateXposition(int i);
 int calculateYposition(int j);
+static void* Func_Thread(ALLEGRO_THREAD *thr, void* arg);
+void setPort(int nport);
 
 
 

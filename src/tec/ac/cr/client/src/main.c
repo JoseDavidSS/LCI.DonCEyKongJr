@@ -1,131 +1,107 @@
-//
-// Created by Kevin Cordero Zúñiga on 9/17/2019.
-//
-#include <allegro5/allegro.h>
-#include "allegro5/allegro_image.h"
-#include <allegro5/allegro_primitives.h>
-#include <dumb.h>
-#include <windows.h>
-#include "gui.h"
-#include "logic/Game.h"
-#include "logic/entity/Fruit.h"
-#include "logic/lists/FruitNode.h"
-#include "logic/lists/KremlinNode.h"
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#include <stdio.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+#include<stdio.h>
+#include <gtk-3.0/gtk/gtk.h>
+#include "socket/Socket.h"
+#include "ui/AllegroWindow.h"
 
-static int largoPantalla = 700;
-static int anchoPantalla = 700;
-static volatile int test = 0;
+/*
+ * Estas variables son necesarias para la interfaz grafica entre las cuales se encuentran
+ * los botones el entry y la ventana,etc
+ * lo importante es que tenga un alcance global  para poder acceder a ellas desde cualquier metodo
+ */
+GtkWidget *window;
+GtkWidget *layout;
+GtkWidget *image;
+GtkWidget *button;
+GtkWidget *button2;
+GtkWidget *entry;
+static char* serverIp = "127.0.0.1";
 
-ALLEGRO_DISPLAY* display = NULL;
-ALLEGRO_EVENT_QUEUE* event_queue = NULL;
-ALLEGRO_TIMER* timer = NULL;
-ALLEGRO_BITMAP  *background = NULL;
-ALLEGRO_THREAD* thread = NULL;
-bool redraw;
-bool done;
-
-int init_game() {
-
-    redraw = true;
-
-    al_init();
-
-    al_init_primitives_addon();
-    al_init_image_addon();
-    al_install_keyboard();
-
-    display = al_create_display(largoPantalla, anchoPantalla);
-
-    background = al_load_bitmap("../src/imagenes/fondo.png");
-
-    al_draw_bitmap(background,0,0,0);
-
-
-    al_flip_display();
-
-    timer = al_create_timer(1.0 / 15);
-    event_queue = al_create_event_queue();
-    al_register_event_source(event_queue, al_get_keyboard_event_source());
-    al_register_event_source(event_queue, al_get_timer_event_source(timer));
-    al_start_timer(timer);
-    return 0;
-}
-
-int run(){
-    int draw = 0;
-    int action = -1;
-    while(!done) {
-        ALLEGRO_EVENT ev;
-        al_wait_for_event(event_queue, &ev);
-        if (ev.type == ALLEGRO_EVENT_KEY_UP) {
-            switch(ev.keyboard.keycode) {
-                case ALLEGRO_KEY_ESCAPE:
-                    done = true;
-            }
-        }
-        if (ev.type == ALLEGRO_EVENT_KEY_DOWN){
-            switch (ev.keyboard.keycode){
-                case ALLEGRO_KEY_UP:
-                    action = 6;
-                    break;
-                case ALLEGRO_KEY_DOWN:
-                    action = 7;
-                    break;
-                case ALLEGRO_KEY_RIGHT:
-                    action = 1;
-                    break;
-                case ALLEGRO_KEY_LEFT:
-                    action = 2;
-                    break;
-                case ALLEGRO_KEY_SPACE:
-                    action = 3;
-                    break;
-                case ALLEGRO_KEY_X:
-                    action = 5;
-                    break;
-                case ALLEGRO_KEY_Z:
-                    action = 4;
-                    break;
-            }
-        }
-        if (draw == 2){
-            draw = 0;
-            dibujarMatriz(action, display);
-            action = -1;
-            al_flip_display();
+static void conectarseJugador (GtkWidget *widget){
+    g_print("%s\n", gtk_entry_get_text(GTK_ENTRY(entry)));
+    const gchar *entry_text;
+    entry_text = gtk_entry_get_text (GTK_ENTRY (entry));
+    enviar(serverIp,8081, entry_text);
+    sleep(1);
+    enviar(serverIp,8081,"jjjjjjjjjjjjjjjjjjjjjj");
+    char* recieved = escuchar(8081, serverIp);
+    char * respuestaPositiva="si";
+    int i = strcmp(recieved, respuestaPositiva);
+    if (i == 0){
+        char* hola;
+        hola = escuchar(8081, serverIp);
+        int a = (int) hola;
+        printf("%d",a);
+        if (a == 4287872){
+            mainAllegro(8082);
         }else{
-            draw++;
-            test += 10;
+            mainAllegro(8083);
         }
+    } else{
+        printf("Me rechazaron");
     }
-    al_destroy_display(display);
-    al_destroy_timer(timer);
-    al_destroy_event_queue(event_queue);
+}
+
+static void conectarseObservador (GtkWidget *widget){
+    g_print("%s\n", gtk_entry_get_text(GTK_ENTRY(entry)));
+    const gchar *entry_text;
+    entry_text = gtk_entry_get_text (GTK_ENTRY (entry));
+    enviar(serverIp,8081, entry_text);
+    sleep(1);
+    enviar(serverIp,8081,"ooooooooooooooooooooooo");
+    char* recieved = escuchar(8081, serverIp);
+    char * respuestaPositiva="si";
+    int i = strcmp(recieved, respuestaPositiva);
+    if (i == 0){
+        char* hola;
+        hola = escuchar(8081, serverIp);
+        int a = (int) hola;
+        printf("%d",a);
+        if (a == 4287872){
+            mainAllegro(8082);
+        }else{
+            mainAllegro(8083);
+        }
+    } else{
+        printf("Me rechazaron");
+    }
+}
+
+int main( int argc, char *argv[]){
+    //Aqui lo que hacemos es cargar el motor grafico
+    gtk_init(&argc, &argv);
+    window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_default_size(GTK_WINDOW(window), 800, 600);
+    gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
+    //Aqui lo que sucede es crear un layout como container  para las cosas que se pondran en la ventana
+    layout = gtk_layout_new(NULL, NULL);
+    gtk_container_add(GTK_CONTAINER (window), layout);
+    gtk_widget_show(layout);
+    //Aqui lo que hacemos es crear los botones y el entry.Ademas de eso creamos  la imagen con el fondo  establecido
+    button = gtk_button_new_with_label ("Conectarse Como Jugador");
+    button2 = gtk_button_new_with_label ("Conectarse Como Observador");
+    entry= gtk_entry_new ();
+    image = gtk_image_new_from_file("../src/imagenes/background.png");
+    //Aqui asociamos un metodo con el boton cuando se realiza en el la accion de clicked
+    g_signal_connect (button, "clicked", G_CALLBACK(conectarseJugador), NULL);
+    g_signal_connect (button2, "clicked", G_CALLBACK(conectarseObservador), NULL);
+
+    //Aqui lo que hacemos es  pegar todas las cosas en la ventana con sus respectivas cordenadas
+    gtk_layout_put(GTK_LAYOUT(layout), image, 0, 0);
+    gtk_entry_set_max_length (GTK_ENTRY (entry),0);
+    gtk_layout_put(GTK_LAYOUT(layout), button2, 130, 445);
+    gtk_layout_put(GTK_LAYOUT(layout), button, 140, 390);
+    gtk_layout_put(GTK_LAYOUT(layout), entry, 475, 290);
+    gtk_widget_set_size_request(button, 80, 35);
+    gtk_widget_set_size_request(button2, 80, 35);
+    g_signal_connect_swapped(G_OBJECT(window), "destroy",G_CALLBACK(gtk_main_quit), NULL);
+    gtk_widget_show_all(window);
+    gtk_main();
+
     return 0;
 }
-
-static void* Func_Thread(ALLEGRO_THREAD *thr, void* arg){
-    int i = 0;
-    while (i == 0){
-        printf("%d \n", test);
-    }
-}
-
-int main() {
-   thread = al_create_thread(Func_Thread, "");
-   al_start_thread(thread);
-   init_game();
-   init_matrix();
-   struct Kremlin kremlin1 = {0, 1, 7, -1, -1, 1, 1, 0, 22, 0, 0};
-   insertKremlin(&kremlin1);
-   struct Fruit fruit1 = {1, 10, 6, 1, 100, 31, 0};
-   insertFruit(&fruit1);
-   run();
-
-   return 0;
-}
-
-#pragma clang diagnostic pop
