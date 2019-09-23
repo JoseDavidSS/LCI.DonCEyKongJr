@@ -13,6 +13,7 @@ struct Fruit{
     int pointsValue;
     int type;
     int placed;
+    int velocity;
 };
 
 #endif //DONCEYKONGJR_FRUIT_H

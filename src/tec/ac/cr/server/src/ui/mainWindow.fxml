@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="392.0" maxWidth="1054.0" minHeight="392.0" minWidth="1054.0" prefHeight="392.0" prefWidth="1054.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.MainWindowController">
    <children>
-      <Button fx:id="beginServerButton" layoutX="935.0" layoutY="346.0" mnemonicParsing="false" onAction="#beginServer" text="Iniciar Server" />
+      <Button fx:id="acceptConection1Button" layoutX="768.0" layoutY="266.0" mnemonicParsing="false" onAction="#acceptPlayer1" text="Aceptar" />
       <Label layoutX="464.0" layoutY="22.0" text="DONCEY KONG JR." />
       <Label layoutX="93.0" layoutY="79.0" text="Crear Kremlin" />
       <ChoiceBox fx:id="kremlinChoiceBox" layoutX="79.0" layoutY="109.0" prefHeight="21.0" prefWidth="116.0" />
@@ -25,17 +25,27 @@
       <Button fx:id="createFruitButton" layoutX="504.0" layoutY="281.0" mnemonicParsing="false" onAction="#createFruit" text="Crear" />
       <ChoiceBox fx:id="playerChoiceBox" layoutX="162.0" layoutY="346.0" prefHeight="31.0" prefWidth="126.0" />
       <Label layoutX="26.0" layoutY="351.0" text="Elije un jugador:" />
-      <Label layoutX="833.0" layoutY="79.0" text="Eliminar Fruta" />
-      <Label layoutX="825.0" layoutY="114.0" text="Fila:" />
-      <Label layoutX="807.0" layoutY="157.0" text="Columna:" />
-      <TextField fx:id="deleteFruitIEntry" layoutX="886.0" layoutY="109.0" prefHeight="31.0" prefWidth="64.0" />
-      <TextField fx:id="deleteFruitJEntry" layoutX="886.0" layoutY="152.0" prefHeight="31.0" prefWidth="64.0" />
-      <Button fx:id="deleteFruitButton" layoutX="848.0" layoutY="196.0" mnemonicParsing="false" onAction="#deleteFruit" text="Borrar" />
+      <Label layoutX="832.0" layoutY="52.0" text="Eliminar Fruta" />
+      <Label layoutX="824.0" layoutY="87.0" text="Fila:" />
+      <Label layoutX="806.0" layoutY="130.0" text="Columna:" />
+      <TextField fx:id="deleteFruitIEntry" layoutX="885.0" layoutY="82.0" prefHeight="31.0" prefWidth="64.0" />
+      <TextField fx:id="deleteFruitJEntry" layoutX="885.0" layoutY="125.0" prefHeight="31.0" prefWidth="64.0" />
+      <Button fx:id="deleteFruitButton" layoutX="847.0" layoutY="169.0" mnemonicParsing="false" onAction="#deleteFruit" text="Borrar" />
       <Button fx:id="confirmPlayerButton" layoutX="311.0" layoutY="346.0" mnemonicParsing="false" onAction="#confirmPlayer" text="Confirmar" />
-      <Label layoutX="82.0" layoutY="157.0" text="Fila" />
-      <Label layoutX="52.0" layoutY="201.0" text="Columna" />
+      <Label layoutX="82.0" layoutY="157.0" text="Fila:" />
+      <Label layoutX="52.0" layoutY="201.0" text="Columna:" />
       <TextField fx:id="createKremlinIEntry" layoutX="130.0" layoutY="153.0" prefHeight="31.0" prefWidth="64.0" />
       <TextField fx:id="createKremlinJEntry" layoutX="130.0" layoutY="196.0" prefHeight="31.0" prefWidth="64.0" />
       <ChoiceBox fx:id="fruitChoiceBox" layoutX="452.0" layoutY="109.0" prefWidth="150.0" />
+      <Button fx:id="searchConectionsButton" layoutX="797.0" layoutY="225.0" mnemonicParsing="false" onAction="#searchConections" text="Buscar Conexiones" />
+      <Button fx:id="acceptConection2Button" layoutX="768.0" layoutY="312.0" mnemonicParsing="false" onAction="#acceptPlayer2" text="Aceptar" />
+      <Label layoutX="688.0" layoutY="271.0" text="Partida 1:" />
+      <Label layoutX="688.0" layoutY="317.0" text="Partida 2:" />
+      <Button fx:id="refuseConection1Button" layoutX="844.0" layoutY="266.0" mnemonicParsing="false" onAction="#refusePlayer" text="Rechazar" />
+      <Button fx:id="refuseConection2Button" layoutX="844.0" layoutY="312.0" mnemonicParsing="false" onAction="#refusePlayer" text="Rechazar" />
+      <Label layoutX="693.0" layoutY="351.0" text="Conexion Recibida de Ip:" />
+      <Label fx:id="ipLabel" layoutX="869.0" layoutY="351.0" prefHeight="21.0" prefWidth="150.0" />
+      <Button fx:id="beginGame1Button" layoutX="931.0" layoutY="266.0" mnemonicParsing="false" onAction="#beginPlayer1" text="Iniciar" />
+      <Button fx:id="beginGame2Button" layoutX="931.0" layoutY="312.0" mnemonicParsing="false" onAction="#beginPlayer2" text="Iniciar" />
    </children>
 </AnchorPane>
