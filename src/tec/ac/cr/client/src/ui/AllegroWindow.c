@@ -28,10 +28,6 @@ int init_game() {
 
     display = al_create_display(largoPantalla, anchoPantalla);
 
-    //background = al_load_bitmap("../src/imagenes/fondo.png");
-
-    //al_draw_bitmap(background,0,0,0);
-
 
     al_flip_display();
 
