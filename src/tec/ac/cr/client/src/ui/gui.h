@@ -28,7 +28,7 @@ static volatile int port = 0;
 
 /// Inicia los componestes de la pantalla
 void init_matrix();
-void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display, ALLEGRO_BITMAP* bitmap);
+void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display);
 void dibujarPiso();
 void dibujarLiana();
 void dibujarDKJr();
