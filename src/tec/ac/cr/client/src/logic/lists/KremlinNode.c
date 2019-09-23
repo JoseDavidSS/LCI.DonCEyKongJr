@@ -33,6 +33,27 @@ void deleteKremlinByID(int id){
     }
 }
 
+void deleteKremlinByPos(int i, int j){
+    struct KremlinNode* current = kremlinHead;
+    struct KremlinNode* previous = NULL;
+    if (kremlinHead == NULL) {
+        return;
+    }
+    while(current->kremlin->posI != i && current->kremlin->posJ) {
+        if(current->next == NULL) {
+            return;
+        } else {
+            previous = current;
+            current = current->next;
+        }
+    }
+    if(current == kremlinHead) {
+        kremlinHead = kremlinHead->next;
+    } else {
+        previous->next = current->next;
+    }
+}
+
 struct Kremlin* findKremlinByPos(int i, int j){
     struct KremlinNode* tmp = kremlinHead;
     if (kremlinHead == NULL) {

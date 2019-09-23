@@ -25,10 +25,11 @@ static int previousIntJ = -1;
 static volatile char* receivedJson = NULL;
 static volatile char* serverIp = "127.0.0.1";
 static volatile int port = 0;
+static int flag = 0;
 
 /// Inicia los componestes de la pantalla
 void init_matrix();
-void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display);
+int dibujarMatriz(int direction, ALLEGRO_DISPLAY* display);
 void dibujarPiso();
 void dibujarLiana();
 void dibujarDKJr();

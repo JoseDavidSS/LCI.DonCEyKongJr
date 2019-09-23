@@ -21,6 +21,7 @@ GtkWidget *button;
 GtkWidget *button2;
 GtkWidget *entry;
 static char* serverIp = "127.0.0.1";
+static int fpoints = 0;
 
 static void conectarseJugador (GtkWidget *widget){
     g_print("%s\n", gtk_entry_get_text(GTK_ENTRY(entry)));
@@ -38,9 +39,9 @@ static void conectarseJugador (GtkWidget *widget){
         int a = (int) hola;
         printf("%d",a);
         if (a == 4287872){
-            mainAllegro(8082);
+            fpoints = mainAllegro(8082);
         }else{
-            mainAllegro(8083);
+            fpoints = mainAllegro(8083);
         }
     } else{
         printf("Me rechazaron");
@@ -63,9 +64,9 @@ static void conectarseObservador (GtkWidget *widget){
         int a = (int) hola;
         printf("%d",a);
         if (a == 4287872){
-            mainAllegro(8082);
+            fpoints = mainAllegro(8082);
         }else{
-            mainAllegro(8083);
+            fpoints = mainAllegro(8083);
         }
     } else{
         printf("Me rechazaron");

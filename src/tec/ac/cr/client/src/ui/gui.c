@@ -13,7 +13,7 @@ void init_matrix(){
     initializeGameMatrix(gameMatrix);
 }
 
-void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display) {
+int dibujarMatriz(int direction, ALLEGRO_DISPLAY* display) {
 
     if (firstTime == 0){
         thread = al_create_thread(Func_Thread, "");
@@ -32,7 +32,10 @@ void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display) {
     al_hold_bitmap_drawing(false);
     al_flip_display();
     al_set_target_bitmap(al_get_backbuffer(display));
-    updateGameMatrix(direction, gameMatrix);
+    flag = updateGameMatrix(direction, gameMatrix);
+    if (flag != 0 ){
+        return flag;
+    }
 
     if (receivedJson != NULL){
         if (isFruit(receivedJson) == 2){
@@ -45,6 +48,7 @@ void dibujarMatriz(int direction, ALLEGRO_DISPLAY* display) {
             receivedJson = NULL;
         }
     }
+    return 0;
 }
 
 void dibujarPiso(){

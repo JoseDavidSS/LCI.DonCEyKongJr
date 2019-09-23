@@ -33,6 +33,27 @@ void deleteFruitByID(int id){
     }
 }
 
+void deleteFruitByPos(int i, int j){
+    struct FruitNode* current = fruitHead;
+    struct FruitNode* previous = NULL;
+    if (fruitHead == NULL) {
+        return;
+    }
+    while(current->fruit->posI != i && current->fruit->posJ != j){
+        if(current->next == NULL) {
+            return;
+        } else {
+            previous = current;
+            current = current->next;
+        }
+    }
+    if(current == fruitHead) {
+        fruitHead = fruitHead->next;
+    } else {
+        previous->next = current->next;
+    }
+}
+
 struct Fruit* findFruitByPos(int i, int j){
     struct FruitNode* tmp = fruitHead;
     if (fruitHead == NULL) {

@@ -18,6 +18,7 @@ struct KremlinNode{
 
 void insertKremlin(struct Kremlin* kremlin);
 void deleteKremlinByID(int id);
+void deleteKremlinByPos(int i, int j);
 struct Kremlin* findKremlinByPos(int i, int j);
 struct KremlinNode* returnKremlinHead();
 
